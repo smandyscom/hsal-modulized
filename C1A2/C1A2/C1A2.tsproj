@@ -1321,6 +1321,24 @@ External Setpoint Generation:
 			</Relations>
 		</DataType>
 		<DataType>
+			<Name GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..4] OF BOOL</Name>
+			<BitSize>32</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}" IecBaseType="true" AutoDeleteType="true">ARRAY [1..2] OF BOOL</Name>
+			<BitSize>16</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
+			<ArrayInfo>
+				<LBound>1</LBound>
+				<Elements>2</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
 			<BitSize>4</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
@@ -1377,6 +1395,13 @@ External Setpoint Generation:
 		<ImageData Id="1007">424de8000000000000007600000028000000100000000e000000010004000000000072000000120b0000120b0000000000000000000043434300858585003838380028282800dfdfdf00c4c4c400626262007e7e7e00bfbfbf00a9a9a9005b5b5b0065656500959595000000000000000000ff00ff00fffff0ff0ffffffffffff12300fffffffffff145060ffffffffff784060ffffffffff798060ffffffffffa00060ffffffffffbc9060ffffffffffb66060ffffffffffbc9060ffffffffffb66060ffffffffff144060ffffffffff6cc060fffffffffff69900ffffffffffff6660fffff0000</ImageData>
 	</ImageDatas>
 	<Project ProjectGUID="{724FE59B-2E2D-4955-9B15-338E9FFBE081}" TargetNetId="5.58.198.104.1.1" ShowHideConfigurations="#x306">
+		<System>
+			<Tasks>
+				<Task Id="4" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
+					<Name>PlcTask</Name>
+				</Task>
+			</Tasks>
+		</System>
 		<Motion>
 			<NC>
 				<SafTask Priority="4" CycleTime="20000" AmsPort="501" IoAtBegin="true">
@@ -1817,9 +1842,13 @@ External Setpoint Generation:
 				<Axis CreateSymbols="true" AxisType="1" Id="3">
 					<Name>Lifter1</Name>
 					<AxisPara>
-						<Dynamic AccelerationMaximum="1000" DecelerationMaximum="1000" Acceleration="1000" Deceleration="1000"/>
+						<Dynamic AccelerationMaximum="10000" DecelerationMaximum="10000" Acceleration="10000" Deceleration="10000" Jerk="20000"/>
 						<Velo SlowManual="10" FastManual="35" Maximum="35"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
+						<ParameterChanged>257</ParameterChanged>
+						<ParameterChanged>242</ParameterChanged>
+						<ParameterChanged>258</ParameterChanged>
+						<ParameterChanged>241</ParameterChanged>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="1" ScaleFactorDenominator="8388608" MaxCount="#xffffffff"/>
@@ -2031,10 +2060,6 @@ External Setpoint Generation:
 						<Dynamic AccelerationMaximum="5000" DecelerationMaximum="5000" Acceleration="5000" Deceleration="5000" Jerk="10000"/>
 						<Velo RefSearch="86.25" RefSync="86.25" SlowManual="431.25" FastManual="2587.5" Fast="8625" Maximum="8625"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
-						<ParameterChanged>257</ParameterChanged>
-						<ParameterChanged>242</ParameterChanged>
-						<ParameterChanged>258</ParameterChanged>
-						<ParameterChanged>241</ParameterChanged>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="150" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff"/>
@@ -2877,6 +2902,1034 @@ External Setpoint Generation:
 				</Axis>
 			</NC>
 		</Motion>
+		<Plc>
+			<Project GUID="{EBF730F5-EB70-496D-B80F-3EF457609040}" Name="Untitled1" PrjFilePath="..\..\..\try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.plcproj" TmcFilePath="..\..\..\try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="..\..\..\try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.tmc">
+					<Name>Untitled1 Instance</Name>
+					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
+					<Vars VarGrpType="1">
+						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>GVL.axisControls[1].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[2].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[3].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[4].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[5].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[6].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[7].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[8].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[1].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[1].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[2].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[2].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[3].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[3].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[4].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[4].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[5].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[5].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[6].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[6].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[7].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[7].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[8].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[8].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[9].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[9].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[10].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[10].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[11].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[11].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[12].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[12].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[13].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[13].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[14].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[14].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[15].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[15].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[16].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[16].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[17].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[17].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[18].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[18].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[19].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[19].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[20].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[20].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[21].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[21].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[22].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[22].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[23].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[23].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[24].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[24].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[25].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[25].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[26].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[26].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[27].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[27].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[28].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[28].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[29].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[29].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[30].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[30].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[31].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[31].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[32].SENSOR_A</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[32].SENSOR_B</Name>
+							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[1].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[2].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[3].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[4].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[5].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[6].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[7].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[8].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[9].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[10].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[11].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[12].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[13].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[14].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[15].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[16].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2">
+						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>GVL.axisControls[1].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[2].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[3].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[4].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[5].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[6].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[7].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[8].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[1].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[1].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[2].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[2].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[3].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[3].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[4].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[4].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[5].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[5].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[6].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[6].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[7].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[7].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[8].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[8].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[9].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[9].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[10].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[10].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[11].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[11].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[12].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[12].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[13].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[13].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[14].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[14].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[15].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[15].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[16].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[16].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[17].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[17].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[18].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[18].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[19].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[19].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[20].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[20].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[21].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[21].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[22].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[22].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[23].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[23].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[24].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[24].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[25].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[25].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[26].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[26].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[27].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[27].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[28].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[28].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[29].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[29].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[30].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[30].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[31].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[31].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[32].ACT_A</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.cylinderControls[32].ACT_B</Name>
+							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="8">
+						<Name>PlcTask Retains</Name>
+						<Var>
+							<Name>GVL.bObjectsLinked</Name>
+							<Comment>
+								<![CDATA[commandBlocks : ARRAY[1..128] OF ParameterSet;]]>
+							</Comment>
+							<Type>BOOL</Type>
+							<InOut>7</InOut>
+						</Var>
+					</Vars>
+					<TaskPouOids>
+						<TaskPouOid Prio="20" OTCID="#x08502001"/>
+					</TaskPouOids>
+				</Instance>
+			</Project>
+		</Plc>
 		<Io>
 			<Device DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.58.198.104.2.1" RemoteName="Device 1 (EtherCAT)" Id="1">
 				<Name>Device 1 (EtherCAT)</Name>
@@ -2907,6 +3960,9 @@ External Setpoint Generation:
 				</AddressInfo>
 				<Image Id="1" AddrType="9" ImageType="3">
 					<Name>Image</Name>
+				</Image>
+				<Image Id="4" AddrType="10" ImageType="3">
+					<Name>Image-2</Name>
 				</Image>
 				<Box BoxType="9099" Id="1">
 					<Name>Term 1 (EK1200)</Name>
@@ -3763,10 +4819,10 @@ External Setpoint Generation:
 										<Data>96000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="21" MotorDataLevel="1" DisableMode="0">
-										<Data>c8000000</Data>
+										<Data>62000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="23" MotorDataLevel="0" DisableMode="0">
-										<Data>14000000</Data>
+										<Data>0a000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="25" MotorDataLevel="0" DisableMode="0">
 										<Data>80bb0000</Data>
@@ -3969,11 +5025,11 @@ External Setpoint Generation:
 							<MBoxUserCmdData>020003000c0000001600000000000000000000000000000000000000000000002011801b040000007a0d00004d6f746f72207370656564206c696d69746174696f6e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001e000000000000000000000000000000000000000000000020108013020000004c0143757272656e74206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001a00000000000000000000000000000000000000000000002010801202000000050043757272656e74206c6f6f7020696e74656772616c2074696d6500</MBoxUserCmdData>
-							<MBoxUserCmdData>020003000c0000001f00000000000000000000000000000000000000000000002010801504000000c800000056656c6f63697479206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
+							<MBoxUserCmdData>020003000c0000001f000000000000000000000000000000000000000000000020108015040000006200000056656c6f63697479206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000c0000001b000000000000000000000000000000000000000000000020108014040000009600000056656c6f63697479206c6f6f7020696e74656772616c2074696d6500</MBoxUserCmdData>
 							<MBoxUserCmdData>02000300090000001200000000000000000000000000000000000000000000002010700301000000084d6f646573206f66206f7065726174696f6e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001100000000000000000000000000000000000000000000002010700b02000000ff7f546f72717565206c696d69746174696f6e00</MBoxUserCmdData>
-							<MBoxUserCmdData>020003000c0000001f0000000000000000000000000000000000000000000000201080170400000014000000506f736974696f6e206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
+							<MBoxUserCmdData>020003000c0000001f000000000000000000000000000000000000000000000020108017040000000a000000506f736974696f6e206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000c00000013000000000000000000000000000000000000000000000020108031040000000000040056656c6f63697479206c696d69746174696f6e00</MBoxUserCmdData>
 							<Pdo Name="FB Position" Index="#x1a00" Flags="#x0000" SyncMan="3">
 								<Entry Name="Position" BitLen="32" Index="#x6000" Sub="#x11">
@@ -8250,8 +9306,10 @@ External Setpoint Generation:
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{00000000-0020-0304-3000-040321000403}" Id="#x02030020"/>
+		<MappingInfo Identifier="{05000010-2001-0850-3000-040300205008}" Id="#x02030040" Watchdog="14000000040000000400000004000000"/>
+		<MappingInfo Identifier="{00000000-0020-0304-3000-040322000403}" Id="#x02030030"/>
 		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x02030010"/>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^Conveyor">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 8 (EL7201-9014)">
 				<Link VarA="Drive^Inputs^In^nDataIn1" VarB="DRV Following error actual value^Following error actual value"/>
@@ -8384,6 +9442,52 @@ External Setpoint Generation:
 				<Link VarA="Enc^Inputs^In^nState6" VarB="Transmit PDO mapping 1^Touch probe status" Size="8" OffsB="8"/>
 				<Link VarA="Enc^Outputs^Out^nCtrl5" VarB="Receive PDO mapping 1^Touch probe function"/>
 				<Link VarA="Enc^Outputs^Out^nCtrl6" VarB="Receive PDO mapping 1^Touch probe function" Size="8" OffsB="8"/>
+			</OwnerB>
+		</OwnerA>
+		<OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 16 (NU-EC1)">
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[1].SENSOR_B[1]" VarB="Output TxPDO-Map^CyA01b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[2].SENSOR_B[1]" VarB="Output TxPDO-Map^CyA02b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[3].SENSOR_B[1]" VarB="Output TxPDO-Map^CyA03b"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[1].input" VarB="Output TxPDO-Map^SFA01"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[2].input" VarB="Output TxPDO-Map^SFA02"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[3].input" VarB="Output TxPDO-Map^SFA03"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[4].input" VarB="Output TxPDO-Map^SPA01"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[5].input" VarB="Output TxPDO-Map^SPA02"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[6].input" VarB="Output TxPDO-Map^SPA03"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 3 (EL2889)">
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[1].ACT_B[1]" VarB="Channel 3^CyA01"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[2].ACT_B[1]" VarB="Channel 2^CyA02"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[3].ACT_B[1]" VarB="Channel 1^CyA03"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Conveyor">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[1].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[1].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Horizon1">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[5].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[5].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Horizon2">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[6].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[6].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Horizon3">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[7].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[7].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Lifter1">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[2].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[2].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Lifter2">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[3].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[3].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Lifter3">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[4].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[4].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 		</OwnerA>
 	</Mappings>
