@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <POU Name="MAIN" Id="{1a75462b-9732-4735-b360-a17758a8c75a}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	fbRead : ADSREAD;
+	value : bool;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[fbRead(
+	NETID:= '5.58.198.104.1.2', 
+	PORT:= 851, 
+	IDXGRP:= 16#4020, 
+	IDXOFFS:= 127, 
+	LEN:= SIZEOF(value), 
+	DESTADDR:= ADR(value), 
+	READ:= , 
+	TMOUT:= , 
+	BUSY=> , 
+	ERR=> , 
+	ERRID=> );]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="8" Count="1" />
+      <LineId Id="20" Count="0" />
+      <LineId Id="11" Count="7" />
+      <LineId Id="2" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
