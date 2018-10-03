@@ -2278,6 +2278,233 @@ External Setpoint Generation:
 						</Var>
 					</Vars>
 				</Axis>
+				<Axis CreateSymbols="true" AxisType="1" Id="5">
+					<Name>Simu</Name>
+					<AxisPara>
+						<OtherSettings AllowMotionCmdToSlave="true"/>
+					</AxisPara>
+					<Encoder Name="Enc" EncType="1">
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+							<Var>
+								<Name>In</Name>
+								<Type GUID="{901C2423-655B-45CE-B7E3-21F174F0F99F}" Namespace="MC">NCENCODERSTRUCT_IN2B</Type>
+								<BitOffs>7680</BitOffs>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn1</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn2</Name>
+								</SubVar>
+								<SubVar>
+									<Name>nState4</Name>
+									<Comment>
+										<![CDATA[Encoder Status 4 (automatically linked):
+0x01 (Bit 0) = IO data invalid (e.g. EtherCAT 'WcState')
+0x02 (Bit 1) = IO data input toggle (e.g. EtherCAT 'InputToggle')
+]]>
+									</Comment>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn3</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn4</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn5</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn6</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn7</Name>
+								</SubVar>
+							</Var>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+							<Var>
+								<Name>Out</Name>
+								<Type GUID="{9CC50AB2-5D79-4869-A3C2-1FA7761BAFEA}" Namespace="MC">NCENCODERSTRUCT_OUT2</Type>
+								<BitOffs>12800</BitOffs>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut1</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut2</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut3</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut4</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut5</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut6</Name>
+								</SubVar>
+							</Var>
+						</Vars>
+					</Encoder>
+					<Drive Name="Drive" DrvType="5">
+						<DrvPara>
+							<Analog ScaleFactorActTorque="0.1"/>
+						</DrvPara>
+						<Vars VarGrpType="1">
+							<Name>Inputs</Name>
+							<Var>
+								<Name>In</Name>
+								<Type GUID="{F95C7C69-0C87-46C4-9559-1285CCA5B23A}" Namespace="MC">NCDRIVESTRUCT_IN2</Type>
+								<BitOffs>8000</BitOffs>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn1</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn2</Name>
+								</SubVar>
+								<SubVar>
+									<Name>nState4</Name>
+									<Comment>
+										<![CDATA[Drive Status 4 (automatically linked):
+0x01 (0000 0001) = IO data invalid (e.g. EtherCAT 'WcState')
+0x02 (0000 0010) = IO data input toggle (e.g. EtherCAT 'InputToggle')
+
+Drive Status 4 (manually linked):
+0x80 (1000 0000) = Fast axis stop (digital IO interrupt)
+]]>
+									</Comment>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn3</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn4</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn5</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataIn6</Name>
+								</SubVar>
+							</Var>
+						</Vars>
+						<Vars VarGrpType="2">
+							<Name>Outputs</Name>
+							<Var>
+								<Name>Out</Name>
+								<Type GUID="{644DC4BD-3D15-4DCB-94C7-24F3A5D579AA}" Namespace="MC">NCDRIVESTRUCT_OUT2</Type>
+								<BitOffs>13120</BitOffs>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut1</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut2</Name>
+								</SubVar>
+								<SubVar>
+									<Name>nCtrl2</Name>
+									<Comment>
+										<![CDATA[Digital Outputs Setpoint Generator:
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]>
+									</Comment>
+								</SubVar>
+								<SubVar>
+									<Name>nCtrl3</Name>
+									<Comment>
+										<![CDATA[Digital Outputs (Setpoint Generator + Position Controller):
+0x41 (0100 0001) = Minus (0x42 for inverse motor polarity)
+0x42 (0100 0010) = Plus (0x41 for inverse motor polarity)
+0x80 (1000 0000) = Stop
+]]>
+									</Comment>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut3</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut4</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut5</Name>
+								</SubVar>
+								<SubVar TypeFormatIndex="2">
+									<Name>nDataOut6</Name>
+								</SubVar>
+							</Var>
+						</Vars>
+					</Drive>
+					<Controller Name="Ctrl" CtrType="1">
+						<CtrPara PriorControlFactor="1">
+							<Observer BandWidth="20"/>
+						</CtrPara>
+					</Controller>
+					<Vars VarGrpType="1" InsertType="1">
+						<Name>Inputs</Name>
+						<Var>
+							<Name>FromPlc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+							<BitOffs>6656</BitOffs>
+						</Var>
+					</Vars>
+					<Vars VarGrpType="2" InsertType="1">
+						<Name>Outputs</Name>
+						<Var>
+							<Name>ToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<BitOffs>10752</BitOffs>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+					</Vars>
+				</Axis>
 			</NC>
 		</Motion>
 		<Plc>
@@ -2293,202 +2520,6 @@ External Setpoint Generation:
 								<![CDATA[ communicate with external device]]>
 							</Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[1].Axis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[2].Axis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[3].Axis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[4].Axis.NcToPlc</Name>
-							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
-							<SubVar>
-								<Name>AxisState</Name>
-								<Comment>
-									<![CDATA[Present State Of The Axis Movement (continuous axis):
-0  = INACTIVE:		axis has no job
-1  = RUNNING:		axis is executing a motion job
-2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
-3  = PHASE_VELOCONST:	axis is moving at constant velocity
-4  = PHASE_ACCPOS:	axis is accelerating
-5  = PHASE_ACCNEG:	axis is decelerating
-Slaves only:
-11 = PREPHASE:		slave axis is in a motion pre-phase
-12 = SYNCHRONIZING:	slave axis is synchronizing
-13 = SYNCHRONOUS:	slave axis is moving synchronously
-External Setpoint Generation:
-41 = EXTSETGEN_MODE1:	external setpoint generation active
-42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>HomingState</Name>
-								<Comment>
-									<![CDATA[Axis Homing Status:
-0: idle
-1: start homing
-2: searching home switch
-3: stopping on home switch
-4: moving off home switch
-5: searching sync pulse
-6: stopping after homing
-]]>
-								</Comment>
-							</SubVar>
-							<SubVar>
-								<Name>CoupleState</Name>
-								<Comment>
-									<![CDATA[Axis Coupling Status:
-0: axis is a single axis (not coupled)
-1: axis is a master axis
-2: axis is master and slave
-3: axis is a slave axis
-]]>
-								</Comment>
-							</SubVar>
 						</Var>
 						<Var>
 							<Name>GVL.cylinderControls[1].SENSOR_A</Name>
@@ -2746,6 +2777,255 @@ External Setpoint Generation:
 							<Name>GVL.signalControls[16].input</Name>
 							<Type>BOOL</Type>
 						</Var>
+						<Var>
+							<Name>GVL.safeComErr</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[1].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[2].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[3].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[4].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[5].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
@@ -2778,26 +3058,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.safeRun</Name>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.safeComErr</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[1].Axis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[2].Axis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[3].Axis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL.axisControls[4].Axis.PlcToNc</Name>
-							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 						<Var>
 							<Name>GVL.cylinderControls[1].ACT_A</Name>
@@ -2991,6 +3251,26 @@ External Setpoint Generation:
 							<Name>GVL.cylinderControls[24].ACT_B</Name>
 							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
 						</Var>
+						<Var>
+							<Name>GVL.axisControls[1].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[2].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[3].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[4].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[5].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2018-10-02T16:15:27">
 						<OwnerA Name="InputDst" Prefix="TIPC^Untitled1^Untitled1 Instance" Type="1">
@@ -3068,32 +3348,32 @@ External Setpoint Generation:
 							<SyncMan>001002000000010004000000000000000200001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6000" Sub="#x01">
+								<Entry Name="H1(Red" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1a01" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6010" Sub="#x01">
+								<Entry Name="H2(Green" Index="#x6010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1a02" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6020" Sub="#x01">
+								<Entry Name="H3(Orange" Index="#x6020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1a03" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6030" Sub="#x01">
+								<Entry Name="H4(White" Index="#x6030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1a04" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6040" Sub="#x01">
+								<Entry Name="Air" Index="#x6040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 6" Index="#x1a05" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6050" Sub="#x01">
+								<Entry Name="6" Index="#x6050" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -3108,22 +3388,22 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 9" Index="#x1a08" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6080" Sub="#x01">
+								<Entry Name="Cy01b" Index="#x6080" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 10" Index="#x1a09" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6090" Sub="#x01">
+								<Entry Name="Cy02a" Index="#x6090" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 11" Index="#x1a0a" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60a0" Sub="#x01">
+								<Entry Name="Cy02b" Index="#x60a0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 12" Index="#x1a0b" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60b0" Sub="#x01">
+								<Entry Name="Cy03b" Index="#x60b0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -3133,12 +3413,12 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 14" Index="#x1a0d" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60d0" Sub="#x01">
+								<Entry Name="Sp02" Index="#x60d0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 15" Index="#x1a0e" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60e0" Sub="#x01">
+								<Entry Name="Md01A" Index="#x60e0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -3157,82 +3437,82 @@ External Setpoint Generation:
 							<SyncMan>010f01004400010003000000000000000100010f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7000" Sub="#x01">
+								<Entry Name="Cy01(Holder" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7010" Sub="#x01">
+								<Entry Name="Cy02(Pusher" Index="#x7010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7020" Sub="#x01">
+								<Entry Name="Cy03(Unlocker" Index="#x7020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7030" Sub="#x01">
+								<Entry Name="Cy04(Holder" Index="#x7030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1604" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7040" Sub="#x01">
+								<Entry Name="Cy05(Connector holder" Index="#x7040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 6" Index="#x1605" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7050" Sub="#x01">
+								<Entry Name="Cy06(PnP" Index="#x7050" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 7" Index="#x1606" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7060" Sub="#x01">
+								<Entry Name="Md01" Index="#x7060" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 8" Index="#x1607" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7070" Sub="#x01">
+								<Entry Name="8" Index="#x7070" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 9" Index="#x1608" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x7080" Sub="#x01">
+								<Entry Name="H1(Red" Index="#x7080" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 10" Index="#x1609" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x7090" Sub="#x01">
+								<Entry Name="H2(Green" Index="#x7090" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 11" Index="#x160a" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70a0" Sub="#x01">
+								<Entry Name="H3(Orange" Index="#x70a0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 12" Index="#x160b" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70b0" Sub="#x01">
+								<Entry Name="H4(White" Index="#x70b0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 13" Index="#x160c" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70c0" Sub="#x01">
+								<Entry Name="Tower(Red" Index="#x70c0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 14" Index="#x160d" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70d0" Sub="#x01">
+								<Entry Name="Tower(Yellow" Index="#x70d0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 15" Index="#x160e" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70e0" Sub="#x01">
+								<Entry Name="Tower(Green" Index="#x70e0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 16" Index="#x160f" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70f0" Sub="#x01">
+								<Entry Name="Tower(Buzzer" Index="#x70f0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -3246,27 +3526,27 @@ External Setpoint Generation:
 							<SyncMan>010f01004400010003000000000000000100010f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7000" Sub="#x01">
+								<Entry Name="YCy06" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7010" Sub="#x01">
+								<Entry Name="YCy07" Index="#x7010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7020" Sub="#x01">
+								<Entry Name="YCy08" Index="#x7020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7030" Sub="#x01">
+								<Entry Name="YCy09" Index="#x7030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1604" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7040" Sub="#x01">
+								<Entry Name="Cy7" Index="#x7040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -3810,31 +4090,31 @@ External Setpoint Generation:
 						<DcMode>4672656552756e0000000000000000004672656552756e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>444300000000000000000000000000004443000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Output TxPDO-Map" Index="#x1a00" Flags="#x0010" SyncMan="3">
-							<Entry Name="Output ID00" Index="#x6000" Sub="#x01">
+							<Entry Name="Sf01" Index="#x6000" Sub="#x01">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID01" Index="#x6000" Sub="#x02">
+							<Entry Name="Sp01" Index="#x6000" Sub="#x02">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID02" Index="#x6000" Sub="#x03">
+							<Entry Name="Cy04b" Index="#x6000" Sub="#x03">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID03" Index="#x6000" Sub="#x04">
+							<Entry Name="Cy05a" Index="#x6000" Sub="#x04">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID04" Index="#x6000" Sub="#x05">
+							<Entry Name="Cy05b" Index="#x6000" Sub="#x05">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID05" Index="#x6000" Sub="#x06">
+							<Entry Name="Cy06a" Index="#x6000" Sub="#x06">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID06" Index="#x6000" Sub="#x07">
+							<Entry Name="Cy06b" Index="#x6000" Sub="#x07">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID07" Index="#x6000" Sub="#x08">
+							<Entry Name="Cy07a" Index="#x6000" Sub="#x08">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID08" Index="#x6000" Sub="#x09">
+							<Entry Name="Cy07b" Index="#x6000" Sub="#x09">
 								<Type>BIT</Type>
 							</Entry>
 							<Entry Name="Output ID09" Index="#x6000" Sub="#x0a">
@@ -4864,78 +5144,78 @@ External Setpoint Generation:
 					<ImageId>1006</ImageId>
 					<EtherCAT SlaveType="1" PdiType="#x0d00" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x044c2c52" RevisionNo="#x00120000" PortPhys="305" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EK1100 EtherCAT Coupler (2A E-Bus)" Desc="EK1100" PortABoxInfo="#x0100000a"/>
 					<Box BoxType="9099" Id="12">
-						<Name>Term 12 (EL1889)</Name>
+						<Name>+7-DI1</Name>
 						<ImageId>7</ImageId>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07613052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1889 16Ch. Dig. Input 24V, 3ms, negative" Desc="EL1889" PortABoxInfo="#x0100000b">
 							<SyncMan>001002000000010004000000000000000200001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6000" Sub="#x01">
+								<Entry Name="YCy01b" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1a01" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6010" Sub="#x01">
+								<Entry Name="YCy02b" Index="#x6010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1a02" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6020" Sub="#x01">
+								<Entry Name="YCy03b" Index="#x6020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1a03" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6030" Sub="#x01">
+								<Entry Name="YCy04b" Index="#x6030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1a04" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6040" Sub="#x01">
+								<Entry Name="YCy05a" Index="#x6040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 6" Index="#x1a05" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6050" Sub="#x01">
+								<Entry Name="YCy05b" Index="#x6050" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 7" Index="#x1a06" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6060" Sub="#x01">
+								<Entry Name="YCy08a" Index="#x6060" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 8" Index="#x1a07" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6070" Sub="#x01">
+								<Entry Name="YCy08b" Index="#x6070" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 9" Index="#x1a08" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6080" Sub="#x01">
+								<Entry Name="PRT.RIBLOW" Index="#x6080" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 10" Index="#x1a09" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6090" Sub="#x01">
+								<Entry Name="PRT.SEVREQ" Index="#x6090" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 11" Index="#x1a0a" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60a0" Sub="#x01">
+								<Entry Name="PRT.END" Index="#x60a0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 12" Index="#x1a0b" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60b0" Sub="#x01">
+								<Entry Name="PRT.MOUT" Index="#x60b0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 13" Index="#x1a0c" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60c0" Sub="#x01">
+								<Entry Name="PRT.RIBOUT" Index="#x60c0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 14" Index="#x1a0d" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60d0" Sub="#x01">
+								<Entry Name="PRT.DATA" Index="#x60d0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -4945,41 +5225,41 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 16" Index="#x1a0f" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60f0" Sub="#x01">
+								<Entry Name="Vs01" Index="#x60f0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 						</EtherCAT>
 					</Box>
 					<Box BoxType="9099" Id="13">
-						<Name>7+DO1</Name>
+						<Name>+7-DO1</Name>
 						<ImageId>1001</ImageId>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x0b493052" RevisionNo="#x00120000" RepeatSupport="true" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL2889 16Ch. Dig. Output 24V, 0.5A, negative" Desc="EL2889" PortABoxInfo="#x0100000c">
 							<SyncMan>000f01004400010003000000000000000100000f44090000</SyncMan>
 							<SyncMan>010f01004400010003000000000000000100010f44090000</SyncMan>
 							<Fmmu>0000000000000000000f00020100000001000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1600" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7000" Sub="#x01">
+								<Entry Name="YCy01(Label gripper vertical" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1601" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7010" Sub="#x01">
+								<Entry Name="YCy02(Label gripper rotate" Index="#x7010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7020" Sub="#x01">
+								<Entry Name="YCy03(Label pressor vertical" Index="#x7020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 4" Index="#x1603" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7030" Sub="#x01">
+								<Entry Name="YCy04(Label gripper press" Index="#x7030" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 5" Index="#x1604" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7040" Sub="#x01">
+								<Entry Name="YCy05(Shift" Index="#x7040" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -5029,30 +5309,30 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 15" Index="#x160e" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70e0" Sub="#x01">
+								<Entry Name="Vb01" Index="#x70e0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 16" Index="#x160f" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70f0" Sub="#x01">
+								<Entry Name="Vg01" Index="#x70f0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 						</EtherCAT>
 					</Box>
 					<Box BoxType="9099" Id="14">
-						<Name>Term 14 (EL1889)</Name>
+						<Name>+7-DI2</Name>
 						<ImageId>7</ImageId>
 						<EtherCAT SlaveType="1" PdiType="#x0104" CycleMBoxPollingTime="0" VendorId="#x00000002" ProductCode="#x07613052" RevisionNo="#x00130000" RepeatSupport="true" CheckRevisionNoType="3" PortPhys="51" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="EL1889 16Ch. Dig. Input 24V, 3ms, negative" Desc="EL1889" PortABoxInfo="#x0100000d">
 							<SyncMan>001002000000010004000000000000000200001000010000</SyncMan>
 							<Fmmu>0000000000000000001000010100000002000000000000000000000000000000</Fmmu>
 							<Pdo Name="Channel 1" Index="#x1a00" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6000" Sub="#x01">
+								<Entry Name="Cy09a" Index="#x6000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 2" Index="#x1a01" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x6010" Sub="#x01">
+								<Entry Name="Cy09b" Index="#x6010" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -5889,9 +6169,73 @@ External Setpoint Generation:
 			</OwnerB>
 		</OwnerA>
 		<OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Box 10 (NU-EC1)">
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[4].SENSOR_B[1]" VarB="Output TxPDO-Map^Cy04b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[5].SENSOR_A[1]" VarB="Output TxPDO-Map^Cy05a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[5].SENSOR_B[1]" VarB="Output TxPDO-Map^Cy05b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[6].SENSOR_A[1]" VarB="Output TxPDO-Map^Cy06a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[6].SENSOR_B[1]" VarB="Output TxPDO-Map^Cy06b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[7].SENSOR_A[1]" VarB="Output TxPDO-Map^Cy07a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[7].SENSOR_B[1]" VarB="Output TxPDO-Map^Cy07b"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[1].input" VarB="Output TxPDO-Map^Sf01"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[2].input" VarB="Output TxPDO-Map^Sp01"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^1+DO1">
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[1].ACT_B[1]" VarB="Channel 1^Cy01(Holder"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[2].ACT_B[1]" VarB="Channel 2^Cy02(Pusher"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[3].ACT_B[1]" VarB="Channel 3^Cy03(Unlocker"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[4].ACT_B[1]" VarB="Channel 4^Cy04(Holder"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[5].ACT_B[1]" VarB="Channel 5^Cy05(Connector holder"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[6].ACT_B[1]" VarB="Channel 6^Cy06(PnP"/>
+				<Link VarA="PlcTask Outputs^MAIN_D.ConveyorMaster.run" VarB="Channel 7^Md01"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^1+DO2">
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[13].ACT_B[1]" VarB="Channel 1^YCy06"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[14].ACT_B[1]" VarB="Channel 2^YCy07"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[15].ACT_B[1]" VarB="Channel 3^YCy08"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[16].ACT_B[1]" VarB="Channel 4^YCy09"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[7].ACT_B[1]" VarB="Channel 5^Cy7"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 2 (EL1889)">
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[1].SENSOR_B[1]" VarB="Channel 9^Cy01b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[2].SENSOR_A[1]" VarB="Channel 10^Cy02a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[2].SENSOR_B[1]" VarB="Channel 11^Cy02b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[3].SENSOR_B[1]" VarB="Channel 12^Cy03b"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[3].input" VarB="Channel 14^Sp02"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[5].input" VarB="Channel 5^Air"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[6].input" VarB="Channel 1^H1(Red"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[7].input" VarB="Channel 2^H2(Green"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[8].input" VarB="Channel 3^H3(Orange"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[9].input" VarB="Channel 4^H4(White"/>
+			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL6900)">
+				<Link VarA="PlcTask Inputs^GVL.safeComErr" VarB="StandardInputs^Standard Out Var 12"/>
 				<Link VarA="PlcTask Outputs^GVL.safeAck" VarB="StandardOutputs^Standard In Var 8"/>
 				<Link VarA="PlcTask Outputs^GVL.safeRun" VarB="StandardOutputs^Standard In Var 11"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 11 (EK1100)^+7-DI1">
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[10].SENSOR_B[1]" VarB="Channel 3^YCy03b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[11].SENSOR_B[1]" VarB="Channel 4^YCy04b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[12].SENSOR_A[1]" VarB="Channel 5^YCy05a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[12].SENSOR_B[1]" VarB="Channel 6^YCy05b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[15].SENSOR_A[1]" VarB="Channel 7^YCy08a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[15].SENSOR_B[1]" VarB="Channel 8^YCy08b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[8].SENSOR_B[1]" VarB="Channel 1^YCy01b"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[9].SENSOR_B[1]" VarB="Channel 2^YCy02b"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[4].input" VarB="Channel 16^Vs01"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 11 (EK1100)^+7-DI2">
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[16].SENSOR_A[1]" VarB="Channel 1^Cy09a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[16].SENSOR_B[1]" VarB="Channel 2^Cy09b"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 11 (EK1100)^+7-DO1">
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[10].ACT_B[1]" VarB="Channel 3^YCy03(Label pressor vertical"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[11].ACT_B[1]" VarB="Channel 4^YCy04(Label gripper press"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[12].ACT_B[1]" VarB="Channel 5^YCy05(Shift"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[8].ACT_B[1]" VarB="Channel 1^YCy01(Label gripper vertical"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[9].ACT_B[1]" VarB="Channel 2^YCy02(Label gripper rotate"/>
+				<Link VarA="PlcTask Outputs^MAIN_D.LabelHandler.bVacuumBreaker" VarB="Channel 15^Vb01"/>
+				<Link VarA="PlcTask Outputs^MAIN_D.LabelHandler.bVacuumGenerator" VarB="Channel 16^Vg01"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Conveyor lifter">
 				<Link VarA="PlcTask Inputs^GVL.axisControls[1].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
@@ -5904,6 +6248,10 @@ External Setpoint Generation:
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Pick and place">
 				<Link VarA="PlcTask Inputs^GVL.axisControls[3].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
 				<Link VarA="PlcTask Outputs^GVL.axisControls[3].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
+			</OwnerB>
+			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Simu">
+				<Link VarA="PlcTask Inputs^GVL.axisControls[5].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
+				<Link VarA="PlcTask Outputs^GVL.axisControls[5].Axis.PlcToNc" VarB="Inputs^FromPlc"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Transporter">
 				<Link VarA="PlcTask Inputs^GVL.axisControls[2].Axis.NcToPlc" VarB="Outputs^ToPlc"/>
