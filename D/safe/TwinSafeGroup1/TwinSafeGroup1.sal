@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="376921799" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9ba45f8d-3279-4fd5-8b23-00ea960704bc" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="4029330212" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9ba45f8d-3279-4fd5-8b23-00ea960704bc" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="5bf55428-9652-4818-96ab-d44ee4705acd">
       <Network Id="e9f250c4-5e05-45ea-952d-e19c531655b8" name="Network1" networkName="Network1" intId="1" networkOrderId="0">
@@ -11,7 +11,7 @@
                   <inPort Id="ddabbe31-198a-4508-89cc-e935358cedfd" name="OrIn1" portName="OrIn1" assignedVariable="FAKE1" portNum="2" objectIndex="8" varId="2" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="9c940e20-792a-4dcc-8574-07417c391c46">
-                        <portMapping Id="da33d165-5b5f-49d5-a459-9b3b9fc36efd" name="FBOr1_OrIn1_mapping" direction="input" dataType="safeBool" assignedVariable="FAKE1" physicalPorts="Term 6 (EL1904) - Module 1 (FSOES).InputChannel1">
+                        <portMapping Id="da33d165-5b5f-49d5-a459-9b3b9fc36efd" name="FBOr1_OrIn1_mapping" direction="input" dataType="safeBool" assignedVariable="FAKE1" physicalPorts="9.InputChannel1">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="ab3b17ed-869a-4495-a849-8ffd61a54ea3">
                               <aliasPort Id="bcbcc383-063d-4bbe-9204-2c3743abf4e9" name="SdsId9.ChannelId1" sdsId="9" channelId="1" channelName="InputChannel1" functionId="1610678529" />
@@ -26,7 +26,7 @@
                   <inPort Id="04bef9b8-33e5-4bb5-b084-e9c4824a6a38" name="OrIn2" portName="OrIn2" assignedVariable="FAKE2" portNum="3" objectIndex="9" varId="3" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="171fc39d-b7af-4b80-b9a1-75c18dec3418">
-                        <portMapping Id="ba5d7353-70a7-4cfe-b3d1-3f4a29ef2748" name="FBOr1_OrIn2_mapping" direction="input" dataType="safeBool" assignedVariable="FAKE2" physicalPorts="Term 6 (EL1904) - Module 1 (FSOES).InputChannel2">
+                        <portMapping Id="ba5d7353-70a7-4cfe-b3d1-3f4a29ef2748" name="FBOr1_OrIn2_mapping" direction="input" dataType="safeBool" assignedVariable="FAKE2" physicalPorts="9.InputChannel2">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="78c7418c-40ef-45fc-a17e-918a5bdab1a0">
                               <aliasPort Id="1f6b7ad5-7904-48d0-817e-18fb6e58b16e" name="SdsId9.ChannelId2" sdsId="9" channelId="2" channelName="InputChannel2" functionId="1610678785" />
@@ -61,7 +61,7 @@
                   <outPort Id="67051595-f996-410b-bf58-fd71bc4d4236" name="OrOut" portName="OrOut" assignedVariable="STO" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="a55b52c2-682e-42ad-a139-ddb429d7e536">
-                        <portMapping Id="56bd104a-2297-428a-a543-3edf2958a31d" name="FBOr1_OrOut_mapping" direction="output" dataType="safeBool" assignedVariable="STO" physicalPorts="Term 7 (EL2904) - Module 1 (FSOES).OutputChannel2">
+                        <portMapping Id="56bd104a-2297-428a-a543-3edf2958a31d" name="FBOr1_OrOut_mapping" direction="output" dataType="safeBool" assignedVariable="STO" physicalPorts="10.OutputChannel2">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="705c8cdc-cd4b-4df7-a6f0-6b7e9fe5a938">
                               <aliasPort Id="fa7cd67c-3f4a-4a46-a7ef-8f00229c9dcc" name="SdsId10.ChannelId2" sdsId="10" channelId="2" channelName="OutputChannel2" functionId="1879114241" />
@@ -88,9 +88,6 @@
     </safetyApplicationHasTwinSAFEGroupAliasPort>
     <safetyApplicationHasTwinSAFEGroupAliasPort Id="31d2fe53-6886-4aae-a85a-01ed443a6965">
       <twinSAFEGroupAliasPort Id="5b0d4e3f-0ca2-4734-a562-c2025786315f" name="ComErr.SdsId12.ChannelId1" sdsId="12" channelId="1" portName="ComErr" functionId="1131179972" />
-    </safetyApplicationHasTwinSAFEGroupAliasPort>
-    <safetyApplicationHasTwinSAFEGroupAliasPort Id="c7f19620-ef25-4dbd-ae35-98d144ff53d8">
-      <twinSAFEGroupAliasPort Id="f5410276-1eee-4c80-aae8-0ca6bc89843a" name="FbErr.SdsId13.ChannelId1" sdsId="13" channelId="1" portName="FbErr" functionId="1131179972" />
     </safetyApplicationHasTwinSAFEGroupAliasPort>
   </twinSAFEGroupAliasPorts>
 </safetyApplication>
