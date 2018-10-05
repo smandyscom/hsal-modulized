@@ -1426,7 +1426,7 @@ External Setpoint Generation:
 		<System>
 			<Settings MaxCpus="4"/>
 			<Licenses>
-				<Target BkhfOrder="2450637">
+				<Target BkhfOrder="2472707">
 					<ManualSelect>{8C57D0A8-BD63-4554-BAE1-E9C797EF0D0E}</ManualSelect>
 				</Target>
 			</Licenses>
@@ -2524,13 +2524,6 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>MAIN_D.LabelHandler.bPrinted</Name>
-							<Comment>
-								<![CDATA[ communicate with external device]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL.signalControls[1].input</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -2697,6 +2690,13 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.cylinderControls[16].SENSOR_B</Name>
 							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN_D.LabelHandler.bPrinted</Name>
+							<Comment>
+								<![CDATA[ communicate with external device]]>
+							</Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.safeComErr</Name>
@@ -2955,28 +2955,6 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>MAIN_D.ConveyorMaster.run</Name>
-							<Comment>
-								<![CDATA[output bit to I/O motor]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN_D.LabelHandler.bTaken</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN_D.LabelHandler.bVacuumGenerator</Name>
-							<Comment>
-								<![CDATA[ Vaccuum]]>
-							</Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>MAIN_D.LabelHandler.bVacuumBreaker</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL.safeRun</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -3109,6 +3087,28 @@ External Setpoint Generation:
 							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
 						</Var>
 						<Var>
+							<Name>MAIN_D.LabelHandler.bTaken</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN_D.LabelHandler.bVacuumGenerator</Name>
+							<Comment>
+								<![CDATA[ Vaccuum]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN_D.LabelHandler.bVacuumBreaker</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>MAIN_D.ConveyorMaster.run</Name>
+							<Comment>
+								<![CDATA[output bit to I/O motor]]>
+							</Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>GVL.axisControls[1].Axis.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
@@ -3129,14 +3129,6 @@ External Setpoint Generation:
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 					</Vars>
-					<UnrestoredVarLinks ImportTime="2018-10-02T16:15:27">
-						<OwnerA Name="InputDst" Prefix="TIPC^Untitled1^Untitled1 Instance" Type="1">
-							<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL6900)">
-								<Link VarA="GVL.safeCommErr" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="StandardInputs^Standard Out Var 12" Size="1" RestoreInfo="ANotFound"/>
-								<Link VarA="GVL.safeFbErr" TypeA="BOOL" InOutA="0" GuidA="{18071995-0000-0000-0000-000000000030}" VarB="StandardInputs^Standard Out Var 13" Size="1" RestoreInfo="ANotFound"/>
-							</OwnerB>
-						</OwnerA>
-					</UnrestoredVarLinks>
 					<TaskPouOids>
 						<TaskPouOid Prio="20" OTCID="#x08502001"/>
 					</TaskPouOids>
