@@ -2531,6 +2531,46 @@ External Setpoint Generation:
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>GVL.signalControls[1].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[2].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[3].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[4].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[5].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[6].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[7].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[8].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[9].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[10].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>GVL.cylinderControls[1].SENSOR_A</Name>
 							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
 						</Var>
@@ -2657,134 +2697,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.cylinderControls[16].SENSOR_B</Name>
 							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[17].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[17].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[18].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[18].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[19].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[19].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[20].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[20].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[21].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[21].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[22].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[22].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[23].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[23].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[24].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[24].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[1].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[2].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[3].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[4].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[5].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[6].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[7].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[8].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[9].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[10].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[11].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[12].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[13].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[14].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[15].input</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.signalControls[16].input</Name>
-							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>GVL.safeComErr</Name>
@@ -3194,70 +3106,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.cylinderControls[16].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[17].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[17].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[18].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[18].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[19].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[19].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[20].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[20].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[21].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[21].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[22].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[22].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[23].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[23].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[24].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[24].ACT_B</Name>
 							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
 						</Var>
 						<Var>
