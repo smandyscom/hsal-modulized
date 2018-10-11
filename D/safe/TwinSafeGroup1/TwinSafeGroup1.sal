@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="3259484862" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9ba45f8d-3279-4fd5-8b23-00ea960704bc" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="2311596456" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9ba45f8d-3279-4fd5-8b23-00ea960704bc" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="5bf55428-9652-4818-96ab-d44ee4705acd">
       <Network Id="e9f250c4-5e05-45ea-952d-e19c531655b8" name="Network1" networkName="EStop" intId="1" networkOrderId="0">
@@ -119,7 +119,7 @@
             </fBDecouple>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="a0f80a04-f59c-435d-8f09-e03cc4d71441">
-            <fBMon Id="2ea9c08a-791b-4d96-9dd8-95dbd44d8def" name="FBMon1" instanceName="FBEStop" orderOfExecution="8" mapState="false" mapDiag="false" xmlid="0" functionName="safeMon" safeInputsAfterDiscError="false" manualFunctionTest="false">
+            <fBMon Id="2ea9c08a-791b-4d96-9dd8-95dbd44d8def" name="FBMon1" instanceName="FBEStop" orderOfExecution="7" mapState="false" mapDiag="false" xmlid="0" functionName="safeMon" safeInputsAfterDiscError="false" manualFunctionTest="false">
               <inPorts>
                 <functioBlockHasInPorts Id="6cf13882-cd5c-4ea6-8927-6aaefc079770">
                   <inPort Id="b6049a31-a059-435b-8f0d-2c730268c467" name="Restart" portName="Restart" portNum="2" objectIndex="0" varId="1" filter="3" portDataType="1" maxDeviation="0" resetTime="0" />
@@ -154,7 +154,7 @@
                   <outPort Id="bda4d1d9-7999-42b9-99ce-c3f904083357" name="Error" portName="Error" portNum="4" objectIndex="0" varId="16" filter="7" portDataType="1" replacementValue="0" />
                 </functionBlockHasOutPorts>
                 <functionBlockHasOutPorts Id="bc8951f5-a631-4b56-bea3-f447063de36d">
-                  <outPort Id="9c7c2751-ff62-49a9-a778-e2a67de1ab40" name="MonOut" portName="MonOut" assignedVariable="EStopAll;STO.FBAnd1.AndIn1;AirChoke.FBAnd3.AndIn2;AirChoke.FBOr2.OrIn1" portNum="11" objectIndex="1" varId="23" filter="7" portDataType="1" replacementValue="0">
+                  <outPort Id="9c7c2751-ff62-49a9-a778-e2a67de1ab40" name="MonOut" portName="MonOut" assignedVariable="EStopAll;STO.FBAnd1.AndIn1;AirChoke.FBAnd3.AndIn2" portNum="11" objectIndex="1" varId="23" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="5d1533f0-3844-43ef-8faf-43deaef877e8">
                         <portMapping Id="01597b06-239a-4dea-8729-44904af07cee" name="FBMon1_MonOut_mapping" direction="output" dataType="safeBool" assignedVariable="EStopAll" physicalPorts="EStop.Out">
@@ -248,11 +248,6 @@
                 </functionBlockHasOutPorts>
                 <functionBlockHasOutPorts Id="a28efca8-8477-4e7e-aa72-9f16596d03aa">
                   <outPort Id="fad76afd-9695-47cd-abff-dad3e1713c46" name="DecOut2" portName="DecOut2" assignedVariable="Door2Out" portNum="4" objectIndex="9" varId="18" filter="7" portDataType="1" replacementValue="0">
-                    <targetFunctionBlockPorts>
-                      <wiredLink Id="9cc1c116-f2c4-48a6-a8b0-6e8598460998">
-                        <inPortMoniker name="//Network2/FBMon1/MonIn3" />
-                      </wiredLink>
-                    </targetFunctionBlockPorts>
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="fae4e730-1ca7-4fbd-98bd-571a6434020e">
                         <portMapping Id="46cf25fc-c4a1-41a8-84c2-11ac95e813bd" name="FBDecouple1_DecOut2_mapping" direction="output" dataType="safeBool" assignedVariable="Door2Out" physicalPorts="Door2.Out">
@@ -312,7 +307,7 @@
             </fBDecouple>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="d00b57c9-1d94-4fa2-8973-55774251922c">
-            <fBMon Id="3b4b0841-0faf-4804-9f98-a051f6f393ae" name="FBMon1" instanceName="FBDoor" orderOfExecution="9" mapState="false" mapDiag="false" xmlid="0" functionName="safeMon" safeInputsAfterDiscError="false" manualFunctionTest="false">
+            <fBMon Id="3b4b0841-0faf-4804-9f98-a051f6f393ae" name="FBMon1" instanceName="FBDoor" orderOfExecution="8" mapState="false" mapDiag="false" xmlid="0" functionName="safeMon" safeInputsAfterDiscError="false" manualFunctionTest="false">
               <inPorts>
                 <functioBlockHasInPorts Id="3eaad53a-06b2-4153-8884-4abe1c1f8c66">
                   <inPort Id="786cec44-f655-4e28-864b-65dfb4426639" name="Restart" portName="Restart" portNum="2" objectIndex="0" varId="1" filter="3" portDataType="1" maxDeviation="0" resetTime="0" />
@@ -324,7 +319,7 @@
                   <inPort Id="b0278f4e-1c0d-4bdf-973b-47160653d55d" name="MonIn2" portName="MonIn2" portNum="5" objectIndex="9" varId="5" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="6df56e7c-bec5-4b49-a2e1-1094bb0b82d0">
-                  <inPort Id="e95190f3-a6dd-4b77-90b7-1c02218422c4" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Single-Channel 1 Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
+                  <inPort Id="e95190f3-a6dd-4b77-90b7-1c02218422c4" name="MonIn3" portName="MonIn3" portNum="6" objectIndex="10" varId="6" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
                 </functioBlockHasInPorts>
                 <functioBlockHasInPorts Id="bcf4657c-f793-4b92-956e-954792cc1ada">
                   <inPort Id="207fcddb-8f5b-4da9-89dc-40106d300c1d" name="MonIn4" portName="MonIn4" portNum="7" objectIndex="11" varId="7" filter="2" portDataType="1" channelInterface="Both Deactivated" maxDeviation="0" resetTime="0" />
@@ -473,7 +468,7 @@
             </fBOr>
           </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="78f046b6-0ab7-4b90-af30-0307b58a6af2">
-            <fBAnd Id="ef85c9df-3d90-486a-9137-2d187685f41c" name="FBAnd2" instanceName="FBAnd2" orderOfExecution="6" mapState="false" mapDiag="false" xmlid="0" functionName="safeAnd">
+            <fBAnd Id="ef85c9df-3d90-486a-9137-2d187685f41c" name="FBAnd2" instanceName="FBAnd2" orderOfExecution="5" mapState="false" mapDiag="false" xmlid="0" functionName="safeAnd">
               <inPorts>
                 <functioBlockHasInPorts Id="671a0378-c2b4-4143-9f8a-889f3651944d">
                   <inPort Id="37f0be95-724d-4b0b-ab86-e5ddeab69f36" name="AndIn1" portName="AndIn1" assignedVariable="STOBypass" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
@@ -531,67 +526,17 @@
     <safetyApplicationHasNetworks Id="5692b12f-75eb-431f-b865-d2388a5833c6">
       <Network Id="3c7e9486-ad42-45c9-877b-e3bb36d1832f" name="Network4" networkName="AirChoke" intId="4" networkOrderId="3">
         <functionBlocks>
-          <networkHasFunctionBlocks Id="cd7d1eea-c74d-4e01-b672-7bd24baa6a92">
-            <fBOr Id="8c50d1b4-f975-4eca-a96b-6a7e0811e2df" name="FBOr1" instanceName="FBOr2" orderOfExecution="5" mapState="false" mapDiag="false" xmlid="0" functionName="safeOr">
-              <inPorts>
-                <functioBlockHasInPorts Id="6925aec6-d6dc-472d-9f71-c620424d1170">
-                  <inPort Id="30e1faf6-d4c5-413d-b679-e7a910de22ed" name="OrIn1" portName="OrIn1" assignedVariable="EStop.FBEStop.MonOut" portNum="2" objectIndex="8" varId="2" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="4cab6a6c-ce3b-46f9-887a-aafe124a6ddc">
-                  <inPort Id="32eb459a-f55f-4035-a474-dbc36a9e3c8e" name="OrIn2" portName="OrIn2" portNum="3" objectIndex="9" varId="3" filter="2" portDataType="1" channelInterface="Activated" deactivate1="Break Contact (NC)" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="f37895b6-dc75-489a-ab01-a54e011e58c7">
-                  <inPort Id="1bd85e1d-fdab-434d-8f10-1f221e4083aa" name="OrIn3" portName="OrIn3" portNum="4" objectIndex="10" varId="4" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="eda88304-1d09-44de-9243-9a1f42a84e3d">
-                  <inPort Id="1a4737fb-fc1b-4420-8958-0c1294741166" name="OrIn4" portName="OrIn4" portNum="5" objectIndex="11" varId="5" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="a68e93ed-2959-4363-a3ec-c62e423ca255">
-                  <inPort Id="89059f4c-b0e6-4805-b102-50504967b331" name="OrIn5" portName="OrIn5" portNum="6" objectIndex="12" varId="6" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="ea803a60-3bc4-48af-bbbd-4735ebcb0483">
-                  <inPort Id="bff6a3e1-f7cc-4395-96b5-f06faf44504b" name="OrIn6" portName="OrIn6" portNum="7" objectIndex="13" varId="7" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="7ab9f781-0b75-4c99-b7c5-880593af2925">
-                  <inPort Id="00889625-38f2-4674-8b2a-40f3794ce574" name="OrIn7" portName="OrIn7" portNum="8" objectIndex="14" varId="8" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-                <functioBlockHasInPorts Id="d29e3228-33a5-4482-9eb2-7a316aef57b8">
-                  <inPort Id="59c146fe-2bec-4743-97d4-bc9e7a5e0b73" name="OrIn8" portName="OrIn8" portNum="9" objectIndex="15" varId="9" filter="2" portDataType="1" channelInterface="Deactivated" maxDeviation="0" resetTime="0" />
-                </functioBlockHasInPorts>
-              </inPorts>
-              <outPorts>
-                <functionBlockHasOutPorts Id="10c35efa-7f55-4334-8067-f25ca23d7bde">
-                  <outPort Id="5b37138b-862b-4625-bc30-186598c74dcd" name="OrOut" portName="OrOut" assignedVariable="AirChoke" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
-                    <portMappings>
-                      <functionBlockPortHasPortMappings Id="ad503025-73d1-4185-9705-340208a25213">
-                        <portMapping Id="8c1d2267-7215-446f-8f5f-0bce15ffee15" name="FBOr1_OrOut_mapping" direction="output" dataType="safeBool" assignedVariable="AirChoke" physicalPorts="AirChoke.Out;Term 7 (EL2904) - Module 1 (FSOES).OutputChannel2">
-                          <aliasPorts>
-                            <portMappingHasAliasPorts Id="5e9f3ca0-6ac1-46c6-9496-a5f3905977a7">
-                              <aliasPort Id="18437ed0-504f-4670-8a02-9efb0973acd5" name="SdsId29.ChannelId1" sdsId="29" channelId="1" channelName="Out" functionId="1131179972" />
-                            </portMappingHasAliasPorts>
-                            <portMappingHasAliasPorts Id="2c25a5e8-fe34-4fa6-a0fa-f865ccaece4c">
-                              <aliasPort Id="424c029c-bf97-4889-ada8-7cc616807596" name="SdsId10.ChannelId2" sdsId="10" channelId="2" channelName="OutputChannel2" functionId="1879114241" />
-                            </portMappingHasAliasPorts>
-                          </aliasPorts>
-                        </portMapping>
-                      </functionBlockPortHasPortMappings>
-                    </portMappings>
-                  </outPort>
-                </functionBlockHasOutPorts>
-              </outPorts>
-            </fBOr>
-          </networkHasFunctionBlocks>
           <networkHasFunctionBlocks Id="3fef98c1-52fc-42d3-8933-4a9c39c2127e">
-            <fBAnd Id="529cf4ea-150d-47bf-828b-f1e1e3b456fa" name="FBAnd1" instanceName="FBAnd3" orderOfExecution="7" mapState="false" mapDiag="false" xmlid="0" functionName="safeAnd">
+            <fBAnd Id="529cf4ea-150d-47bf-828b-f1e1e3b456fa" name="FBAnd1" instanceName="FBAnd3" orderOfExecution="6" mapState="false" mapDiag="false" xmlid="0" functionName="safeAnd">
               <inPorts>
                 <functioBlockHasInPorts Id="cb48f36a-7b96-4e22-b976-1e156a7ae437">
-                  <inPort Id="b903c2d1-f4f5-4b6b-93ae-367661c4e370" name="AndIn1" portName="AndIn1" assignedVariable="AirChokeBypass" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
+                  <inPort Id="b903c2d1-f4f5-4b6b-93ae-367661c4e370" name="AndIn1" portName="AndIn1" assignedVariable="AirChokeOff" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="e7c46866-6f1d-446f-927a-c72fd05b8a92">
-                        <portMapping Id="19d7029d-2e8f-4dbe-804d-3c3a99ba7425" name="FBAnd1_AndIn1_mapping" direction="input" dataType="safeBool" assignedVariable="AirChokeBypass" physicalPorts="AirChokeBypass.In">
+                        <portMapping Id="19d7029d-2e8f-4dbe-804d-3c3a99ba7425" name="FBAnd1_AndIn1_mapping" direction="input" dataType="safeBool" assignedVariable="AirChokeOff" physicalPorts="airChockOff.In">
                           <aliasPorts>
-                            <portMappingHasAliasPorts Id="3d7f6112-109b-46b9-99fa-821042b94866">
-                              <aliasPort Id="d76e7928-8271-49e7-a8ea-488d09440361" name="SdsId25.ChannelId1" sdsId="25" channelId="1" channelName="In" functionId="1131179973" />
+                            <portMappingHasAliasPorts Id="18a69ab2-df26-464e-be71-19ab5f8a7e97">
+                              <aliasPort Id="57c72ae3-f98f-43cf-b37c-2e8607d45fe1" name="SdsId32.ChannelId1" sdsId="32" channelId="1" channelName="In" functionId="1131179973" />
                             </portMappingHasAliasPorts>
                           </aliasPorts>
                         </portMapping>
@@ -623,12 +568,21 @@
               </inPorts>
               <outPorts>
                 <functionBlockHasOutPorts Id="70ed3a41-d354-471b-96f4-3ef29dca4771">
-                  <outPort Id="7538226d-46da-4493-9fed-353f3d4471dc" name="AndOut" portName="AndOut" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
-                    <targetFunctionBlockPorts>
-                      <wiredLink Id="628e9ccd-d05d-4c87-8a45-229780ec4917">
-                        <inPortMoniker name="//Network4/FBOr1/OrIn2" />
-                      </wiredLink>
-                    </targetFunctionBlockPorts>
+                  <outPort Id="7538226d-46da-4493-9fed-353f3d4471dc" name="AndOut" portName="AndOut" assignedVariable="AirChoke" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
+                    <portMappings>
+                      <functionBlockPortHasPortMappings Id="95d2d4ed-2aad-4469-a24a-32727f613473">
+                        <portMapping Id="ef7db7ee-2523-4821-8256-8c73cc70e7f8" name="FBAnd1_AndOut_mapping" direction="output" dataType="safeBool" assignedVariable="AirChoke" physicalPorts="AirChoke.Out;Term 7 (EL2904) - Module 1 (FSOES).OutputChannel2">
+                          <aliasPorts>
+                            <portMappingHasAliasPorts Id="bf0242ac-0185-4185-a3c3-b05f32e23630">
+                              <aliasPort Id="c2ca620e-6ad5-4c23-b591-f07195da7725" name="SdsId29.ChannelId1" sdsId="29" channelId="1" channelName="Out" functionId="1131179972" />
+                            </portMappingHasAliasPorts>
+                            <portMappingHasAliasPorts Id="c2e75a92-99f3-4367-b0b0-e099bfd6d6a3">
+                              <aliasPort Id="82a95111-3286-47b6-b1bf-9fb81f14e904" name="SdsId10.ChannelId2" sdsId="10" channelId="2" channelName="OutputChannel2" functionId="1879114241" />
+                            </portMappingHasAliasPorts>
+                          </aliasPorts>
+                        </portMapping>
+                      </functionBlockPortHasPortMappings>
+                    </portMappings>
                   </outPort>
                 </functionBlockHasOutPorts>
               </outPorts>
