@@ -1,0 +1,4 @@
+update whole_inputs
+set
+hal_address = hal_address + 524288
+ where  cylinder_id_sen_a is not null or cylinder_id_sen_b is not null

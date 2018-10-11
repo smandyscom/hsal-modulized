@@ -1,0 +1,4 @@
+update whole_inputs
+set
+HAL_ADDRESS = 16777216 + (PLC_ADDRESS - (select PLC_ADDRESS from WHOLE_INPUTS where NAME is not null AND ( SIGNAL_ID is not null or CYLINDER_ID_SEN_A is not null or  CYLINDER_ID_SEN_B is not null)  order by PLC_ADDRESS limit 1) ) /2
+where NAME is not null AND ( SIGNAL_ID is not null or CYLINDER_ID_SEN_A is not null or  CYLINDER_ID_SEN_B is not null) 

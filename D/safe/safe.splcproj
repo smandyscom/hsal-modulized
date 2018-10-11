@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project Crc="4146461981" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+<Project Crc="1992092702" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
@@ -16,7 +16,7 @@
     <IntProjName>safe</IntProjName>
     <IsNewCreated>false</IsNewCreated>
     <SPlcProjVersion>1.2.0.0</SPlcProjVersion>
-    <NextSdsId>16</NextSdsId>
+    <NextSdsId>32</NextSdsId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>false</DebugSymbols>
@@ -28,11 +28,25 @@
     <None Include="TargetSystemConfig.xml">
       <Visible>false</Visible>
     </None>
+    <None Include="TwinSafeGroup1\Alias Devices\Bypass\AirChokeBypass.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Bypass\STOBypass.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\ComErr.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\ErrorAcknowledgement.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Indirect Status\AirChoke.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Indirect Status\DoorAll.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Indirect Status\EStop.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Indirect Status\ServoSto.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\Run.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\Door1.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\Door2.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\Door3.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\Door4.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\EStop1.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\EStop2.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Direct Status\LightCurtain.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\Term 6 %28EL1904%29 - Module 1 %28FSOES%29.sds" />
     <None Include="TwinSafeGroup1\Alias Devices\Term 7 %28EL2904%29 - Module 1 %28FSOES%29.sds" />
+    <None Include="TwinSafeGroup1\Alias Devices\Unlock\DoorUnlockAll.sds" />
     <None Include="TwinSafeGroup1\TwinSafeGroup1.sal" />
     <None Include="TwinSafeGroup1\TwinSafeGroup1.sal.diagram">
       <Visible>false</Visible>
@@ -42,5 +56,9 @@
   <ItemGroup>
     <Folder Include="TwinSafeGroup1" />
     <Folder Include="TwinSafeGroup1\Alias Devices" />
+    <Folder Include="TwinSafeGroup1\Alias Devices\Bypass" />
+    <Folder Include="TwinSafeGroup1\Alias Devices\Indirect Status" />
+    <Folder Include="TwinSafeGroup1\Alias Devices\Unlock" />
+    <Folder Include="TwinSafeGroup1\Alias Devices\Direct Status" />
   </ItemGroup>
 </Project>
