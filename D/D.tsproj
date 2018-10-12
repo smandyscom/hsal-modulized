@@ -2529,6 +2529,60 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
+							<Name>GVL.ioSafety.safeComErr</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.door1</Name>
+							<Comment>
+								<![CDATA[direct status]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.door2</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.door3</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.door4</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.eStop1</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.eStop2</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.lightScreen</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.airChoke</Name>
+							<Comment>
+								<![CDATA[indirect status]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.doorAll</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.eStop</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.servoSto</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
 							<Name>GVL.ioPrinter.prtRiblow</Name>
 							<Type>BIT</Type>
 						</Var>
@@ -2966,66 +3020,83 @@ External Setpoint Generation:
 							</SubVar>
 						</Var>
 						<Var>
-							<Name>GVL.ioSafety.safeComErr</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.door1</Name>
-							<Comment>
-								<![CDATA[direct status]]>
-							</Comment>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.door2</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.door3</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.door4</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.eStop1</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.eStop2</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.lightScreen</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.airChoke</Name>
-							<Comment>
-								<![CDATA[indirect status]]>
-							</Comment>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.doorAll</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.eStop</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.servoSto</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
 							<Name>MAIN_D.ConveyorMaster.overheat</Name>
 							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
+						<Var>
+							<Name>GVL.ioControl.lightRed</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.lightGreen</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.lightYellow</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.lightWhite</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.towerRed</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.towerGreen</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.towerYellow</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioControl.towerBuzzer</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.safeAck</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.safeRun</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.airOff</Name>
+							<Comment>
+								<![CDATA[bypass]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.stoBypass</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioSafety.doorUnlockAll</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.breakGripper</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.breakPressor</Name>
+							<Type>BIT</Type>
+						</Var>
 						<Var>
 							<Name>GVL.ioPrinter.prtStart</Name>
 							<Type>BIT</Type>
@@ -3189,77 +3260,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.axisControls[5].Axis.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.safeAck</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.safeRun</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.airOff</Name>
-							<Comment>
-								<![CDATA[bypass]]>
-							</Comment>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.stoBypass</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioSafety.doorUnlockAll</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.lightRed</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.lightGreen</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.lightYellow</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.lightWhite</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.towerRed</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.towerGreen</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.towerYellow</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioControl.towerBuzzer</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.breakGripper</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.breakPressor</Name>
-							<Type>BIT</Type>
 						</Var>
 						<Var>
 							<Name>MAIN_D.ConveyorMaster.run</Name>
@@ -5307,22 +5307,22 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 9" Index="#x1608" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x7080" Sub="#x01">
+								<Entry Name="PRT.START" Index="#x7080" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 10" Index="#x1609" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x7090" Sub="#x01">
+								<Entry Name="PRT.FEED" Index="#x7090" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 11" Index="#x160a" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70a0" Sub="#x01">
+								<Entry Name="PRT.PAUSE" Index="#x70a0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 12" Index="#x160b" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70b0" Sub="#x01">
+								<Entry Name="PRT.REPRINT" Index="#x70b0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -6215,6 +6215,14 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[4].ACT_B[1]" VarB="Channel 4^Cy04(Holder"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[5].ACT_B[1]" VarB="Channel 5^Cy05(Connector holder"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[6].ACT_B[1]" VarB="Channel 6^Cy06(PnP"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightGreen" VarB="Channel 10^H2(Green"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightRed" VarB="Channel 9^H1(Red"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightWhite" VarB="Channel 12^H4(White"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightYellow" VarB="Channel 11^H3(Orange"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerBuzzer" VarB="Channel 16^Tower(Buzzer"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerGreen" VarB="Channel 15^Tower(Green"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerRed" VarB="Channel 13^Tower(Red"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerYellow" VarB="Channel 14^Tower(Yellow"/>
 				<Link VarA="PlcTask Outputs^MAIN_D.ConveyorMaster.run" VarB="Channel 7^Md01"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^1+DO2">
@@ -6235,6 +6243,26 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^GVL.signalControls[7].input" VarB="Channel 2^H2(Green"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[8].input" VarB="Channel 3^H3(Orange"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[9].input" VarB="Channel 4^H4(White"/>
+				<Link VarA="PlcTask Inputs^MAIN_D.ConveyorMaster.overheat" VarB="Channel 15^Md01A"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL6900)">
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.airChoke" VarB="StandardInputs^Standard Out Var 29"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.door1" VarB="StandardInputs^Standard Out Var 18"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.door2" VarB="StandardInputs^Standard Out Var 19"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.door3" VarB="StandardInputs^Standard Out Var 20"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.door4" VarB="StandardInputs^Standard Out Var 21"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.doorAll" VarB="StandardInputs^Standard Out Var 31"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop" VarB="StandardInputs^Standard Out Var 30"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop1" VarB="StandardInputs^Standard Out Var 17"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop2" VarB="StandardInputs^Standard Out Var 27"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.lightScreen" VarB="StandardInputs^Standard Out Var 22"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.safeComErr" VarB="StandardInputs^Standard Out Var 12"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.servoSto" VarB="StandardInputs^Standard Out Var 28"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.airOff" VarB="StandardOutputs^Standard In Var 32"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.doorUnlockAll" VarB="StandardOutputs^Standard In Var 26"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.safeAck" VarB="StandardOutputs^Standard In Var 8"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.safeRun" VarB="StandardOutputs^Standard In Var 11"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.stoBypass" VarB="StandardOutputs^Standard In Var 24"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 11 (EK1100)^+7-DI1">
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[10].SENSOR_B[1]" VarB="Channel 3^YCy03b"/>
@@ -6245,6 +6273,12 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[15].SENSOR_B[1]" VarB="Channel 8^YCy08b"/>
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[8].SENSOR_B[1]" VarB="Channel 1^YCy01b"/>
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[9].SENSOR_B[1]" VarB="Channel 2^YCy02b"/>
+				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtData" VarB="Channel 14^PRT.DATA"/>
+				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtEnd" VarB="Channel 11^PRT.END"/>
+				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtPrtMout" VarB="Channel 12^PRT.MOUT"/>
+				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtRiblow" VarB="Channel 9^PRT.RIBLOW"/>
+				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtRibout" VarB="Channel 13^PRT.RIBOUT"/>
+				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtSerReq" VarB="Channel 10^PRT.SEVREQ"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[4].input" VarB="Channel 16^Vs01"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 11 (EK1100)^+7-DI2">
@@ -6257,6 +6291,12 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[12].ACT_B[1]" VarB="Channel 5^YCy05(Shift"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[8].ACT_B[1]" VarB="Channel 1^YCy01(Label gripper vertical"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[9].ACT_B[1]" VarB="Channel 2^YCy02(Label gripper rotate"/>
+				<Link VarA="PlcTask Outputs^GVL.ioLabelHandler.breakGripper" VarB="Channel 15^Vb01"/>
+				<Link VarA="PlcTask Outputs^GVL.ioLabelHandler.vacuumGripper" VarB="Channel 16^Vg01"/>
+				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtFeed" VarB="Channel 10^PRT.FEED"/>
+				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtPause" VarB="Channel 11^PRT.PAUSE"/>
+				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtReprint" VarB="Channel 12^PRT.REPRINT"/>
+				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtStart" VarB="Channel 9^PRT.START"/>
 			</OwnerB>
 			<OwnerB Name="TINC^NC-Task 1 SAF^Axes^Conveyor lifter">
 				<Link VarA="PlcTask Inputs^GVL.axisControls[1].Axis.NcToPlc" VarB="Outputs^ToPlc"/>

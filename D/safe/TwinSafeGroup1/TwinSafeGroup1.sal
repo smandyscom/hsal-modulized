@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<safetyApplication Crc="2311596456" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9ba45f8d-3279-4fd5-8b23-00ea960704bc" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
+<safetyApplication Crc="1297340194" xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.1.0.0" Id="9ba45f8d-3279-4fd5-8b23-00ea960704bc" name="" mapState="false" mapDiag="false" groupOrderId="0" passificationAllowed="false" temporaryDeactivationAllowed="false" permamentDeactivationAllowed="false" xmlid="0" analogFBOutputReplacementValues="Zero" verifyAnalogFBInputsIfStart="false" xmlns="http://schemas.microsoft.com/dsltools/SafetyApplicationLanguage">
   <networks>
     <safetyApplicationHasNetworks Id="5bf55428-9652-4818-96ab-d44ee4705acd">
       <Network Id="e9f250c4-5e05-45ea-952d-e19c531655b8" name="Network1" networkName="EStop" intId="1" networkOrderId="0">
@@ -11,7 +11,7 @@
                   <inPort Id="6d3081c5-8367-44a7-b2f0-db16d8ad292f" name="DecIn1" portName="DecIn1" assignedVariable="EStop1" portNum="3" objectIndex="8" varId="5" filter="2" portDataType="1" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="46c3122f-e045-42a4-94b9-51130a562fc6">
-                        <portMapping Id="51b45f5b-9da3-4a95-b2b1-0e7b42b52aa2" name="FBDecouple1_DecIn1_mapping" direction="input" dataType="safeBool" assignedVariable="EStop1" physicalPorts="Term 6 (EL1904) - Module 1 (FSOES).InputChannel1">
+                        <portMapping Id="51b45f5b-9da3-4a95-b2b1-0e7b42b52aa2" name="FBDecouple1_DecIn1_mapping" direction="input" dataType="safeBool" assignedVariable="EStop1" physicalPorts="9.InputChannel1">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="22af7d57-1878-4a19-99fd-3fbbb7ebadc0">
                               <aliasPort Id="8a2cb6be-bd0d-445e-87b6-a257402f3471" name="SdsId9.ChannelId1" sdsId="9" channelId="1" channelName="InputChannel1" functionId="1610678529" />
@@ -26,7 +26,7 @@
                   <inPort Id="8658ad78-32e4-428f-9f38-5847334a6770" name="DecIn2" portName="DecIn2" assignedVariable="EStop2" portNum="4" objectIndex="9" varId="6" filter="2" portDataType="1" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="5d9c91ec-7a6e-4251-9611-ca362399037b">
-                        <portMapping Id="478f2342-9a1c-41d6-896d-e9c72ffd5600" name="FBDecouple1_DecIn2_mapping" direction="input" dataType="safeBool" assignedVariable="EStop2" physicalPorts="Term 6 (EL1904) - Module 1 (FSOES).InputChannel2">
+                        <portMapping Id="478f2342-9a1c-41d6-896d-e9c72ffd5600" name="FBDecouple1_DecIn2_mapping" direction="input" dataType="safeBool" assignedVariable="EStop2" physicalPorts="9.InputChannel2">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="0eba329c-271c-4c52-b5f2-be9f18879f99">
                               <aliasPort Id="3497388b-4492-4eb9-bb7a-06a3f44dd61e" name="SdsId9.ChannelId2" sdsId="9" channelId="2" channelName="InputChannel2" functionId="1610678785" />
@@ -66,7 +66,7 @@
                     </targetFunctionBlockPorts>
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="4b83ccbf-4a52-4c45-b323-2f46746700f2">
-                        <portMapping Id="2d94b674-8f54-4b82-ad68-8e9c3ce650c8" name="FBDecouple1_DecOut1_mapping" direction="output" dataType="safeBool" assignedVariable="EStop1Out" physicalPorts="EStop1.Out">
+                        <portMapping Id="2d94b674-8f54-4b82-ad68-8e9c3ce650c8" name="FBDecouple1_DecOut1_mapping" direction="output" dataType="safeBool" assignedVariable="EStop1Out" physicalPorts="17.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="5ab0b10a-75da-4e80-9734-3703b56453bd">
                               <aliasPort Id="b9e9be32-0e80-4a64-b5ba-015c48900313" name="SdsId17.ChannelId1" sdsId="17" channelId="1" channelName="Out" functionId="1131179972" />
@@ -86,7 +86,7 @@
                     </targetFunctionBlockPorts>
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="1c848661-6114-492a-a6a6-4f4cb9569953">
-                        <portMapping Id="5f7678f0-b936-47df-b37a-6481374f0348" name="FBDecouple1_DecOut2_mapping" direction="output" dataType="safeBool" assignedVariable="EStop2Out" physicalPorts="EStop2.Out">
+                        <portMapping Id="5f7678f0-b936-47df-b37a-6481374f0348" name="FBDecouple1_DecOut2_mapping" direction="output" dataType="safeBool" assignedVariable="EStop2Out" physicalPorts="27.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="a50ecfff-7db5-49dc-b811-e37dc35fa358">
                               <aliasPort Id="39feccb8-de2a-4c64-9f6b-9bf4eafef118" name="SdsId27.ChannelId1" sdsId="27" channelId="1" channelName="Out" functionId="1131179972" />
@@ -157,7 +157,7 @@
                   <outPort Id="9c7c2751-ff62-49a9-a778-e2a67de1ab40" name="MonOut" portName="MonOut" assignedVariable="EStopAll;STO.FBAnd1.AndIn1;AirChoke.FBAnd3.AndIn2" portNum="11" objectIndex="1" varId="23" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="5d1533f0-3844-43ef-8faf-43deaef877e8">
-                        <portMapping Id="01597b06-239a-4dea-8729-44904af07cee" name="FBMon1_MonOut_mapping" direction="output" dataType="safeBool" assignedVariable="EStopAll" physicalPorts="EStop.Out">
+                        <portMapping Id="01597b06-239a-4dea-8729-44904af07cee" name="FBMon1_MonOut_mapping" direction="output" dataType="safeBool" assignedVariable="EStopAll" physicalPorts="30.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="e24c686a-39ea-47a1-b73a-cabfa6872f94">
                               <aliasPort Id="90f5a765-7b84-4cf9-94a9-0a78c5cf78f0" name="SdsId30.ChannelId1" sdsId="30" channelId="1" channelName="Out" functionId="1131179972" />
@@ -192,7 +192,7 @@
                   <inPort Id="896a96dc-efde-494c-b43b-5ba5788b4bba" name="DecIn1" portName="DecIn1" assignedVariable="Door1" portNum="3" objectIndex="8" varId="5" filter="2" portDataType="1" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="0ba7b648-d876-4594-9610-9db115495af5">
-                        <portMapping Id="442cc2b5-5089-4c32-a960-b4feeb5f03a1" name="FBDecouple1_DecIn1_mapping" direction="input" dataType="safeBool" assignedVariable="Door1" physicalPorts="Term 6 (EL1904) - Module 1 (FSOES).InputChannel3">
+                        <portMapping Id="442cc2b5-5089-4c32-a960-b4feeb5f03a1" name="FBDecouple1_DecIn1_mapping" direction="input" dataType="safeBool" assignedVariable="Door1" physicalPorts="9.InputChannel3">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="ee3f6f4d-677c-4ba6-ae74-4cd3cb6ceca8">
                               <aliasPort Id="fc2ccd90-3c70-48ea-b22a-32f74f316933" name="SdsId9.ChannelId3" sdsId="9" channelId="3" channelName="InputChannel3" functionId="1610679041" />
@@ -235,7 +235,7 @@
                     </targetFunctionBlockPorts>
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="99c24142-aa3a-4e82-b05a-2a33ab00531f">
-                        <portMapping Id="da10461a-8ffe-4eb5-9e23-e13794d46533" name="FBDecouple1_DecOut1_mapping" direction="output" dataType="safeBool" assignedVariable="Door1Out" physicalPorts="Door1.Out">
+                        <portMapping Id="da10461a-8ffe-4eb5-9e23-e13794d46533" name="FBDecouple1_DecOut1_mapping" direction="output" dataType="safeBool" assignedVariable="Door1Out" physicalPorts="18.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="a1c2ca00-9097-4ef0-9282-82c69a3c4a1b">
                               <aliasPort Id="90dd3e98-7a27-496a-9738-556a41f1af0e" name="SdsId18.ChannelId1" sdsId="18" channelId="1" channelName="Out" functionId="1131179972" />
@@ -250,7 +250,7 @@
                   <outPort Id="fad76afd-9695-47cd-abff-dad3e1713c46" name="DecOut2" portName="DecOut2" assignedVariable="Door2Out" portNum="4" objectIndex="9" varId="18" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="fae4e730-1ca7-4fbd-98bd-571a6434020e">
-                        <portMapping Id="46cf25fc-c4a1-41a8-84c2-11ac95e813bd" name="FBDecouple1_DecOut2_mapping" direction="output" dataType="safeBool" assignedVariable="Door2Out" physicalPorts="Door2.Out">
+                        <portMapping Id="46cf25fc-c4a1-41a8-84c2-11ac95e813bd" name="FBDecouple1_DecOut2_mapping" direction="output" dataType="safeBool" assignedVariable="Door2Out" physicalPorts="19.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="fe25597f-fbf1-42ff-81a6-823d6181705d">
                               <aliasPort Id="8635713d-7cad-4426-9167-8e4569384882" name="SdsId19.ChannelId1" sdsId="19" channelId="1" channelName="Out" functionId="1131179972" />
@@ -265,7 +265,7 @@
                   <outPort Id="67ec2d1c-0a95-4db4-bcbb-6d04679e4999" name="DecOut3" portName="DecOut3" assignedVariable="Door3Out" portNum="5" objectIndex="10" varId="19" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="21857060-7646-4db0-a432-e52676cd8fe3">
-                        <portMapping Id="f1e50901-ac53-4bac-a58f-5489f4be1265" name="FBDecouple1_DecOut3_mapping" direction="output" dataType="safeBool" assignedVariable="Door3Out" physicalPorts="Door3.Out">
+                        <portMapping Id="f1e50901-ac53-4bac-a58f-5489f4be1265" name="FBDecouple1_DecOut3_mapping" direction="output" dataType="safeBool" assignedVariable="Door3Out" physicalPorts="20.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="42b72de1-8202-479a-9352-bc889f19a46f">
                               <aliasPort Id="383c4fa9-ca4f-4724-b78b-2105b3e5f0f4" name="SdsId20.ChannelId1" sdsId="20" channelId="1" channelName="Out" functionId="1131179972" />
@@ -280,7 +280,7 @@
                   <outPort Id="d5d9b6ca-1cad-491a-8093-788be58c6c1a" name="DecOut4" portName="DecOut4" assignedVariable="Door4Out" portNum="6" objectIndex="11" varId="20" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="ca5890b7-845a-4047-a0e5-8dd491fae727">
-                        <portMapping Id="d51b4dc7-78cd-4743-830a-7756170c63d8" name="FBDecouple1_DecOut4_mapping" direction="output" dataType="safeBool" assignedVariable="Door4Out" physicalPorts="Door4.Out">
+                        <portMapping Id="d51b4dc7-78cd-4743-830a-7756170c63d8" name="FBDecouple1_DecOut4_mapping" direction="output" dataType="safeBool" assignedVariable="Door4Out" physicalPorts="21.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="8d5dbe49-b31b-473a-9ec6-ecb9723a9528">
                               <aliasPort Id="b81fa125-7149-47e8-9dfe-ff38959e2a17" name="SdsId21.ChannelId1" sdsId="21" channelId="1" channelName="Out" functionId="1131179972" />
@@ -345,7 +345,7 @@
                   <outPort Id="c13b6cae-c521-43f4-9f91-fc064586023d" name="MonOut" portName="MonOut" assignedVariable="DoorAll;STO.FBAnd1.AndIn2" portNum="11" objectIndex="1" varId="23" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="b56713ce-cfdb-448c-83c2-82740d0fa746">
-                        <portMapping Id="543a8dcb-55ee-4528-b329-d043596eacc9" name="FBMon1_MonOut_mapping" direction="output" dataType="safeBool" assignedVariable="DoorAll" physicalPorts="DoorAll.Out">
+                        <portMapping Id="543a8dcb-55ee-4528-b329-d043596eacc9" name="FBMon1_MonOut_mapping" direction="output" dataType="safeBool" assignedVariable="DoorAll" physicalPorts="31.Out">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="53fb564c-608d-4ece-a382-80a822012fb7">
                               <aliasPort Id="89d14a6f-bb6c-412f-ab59-3b8532e2b662" name="SdsId31.ChannelId1" sdsId="31" channelId="1" channelName="Out" functionId="1131179972" />
@@ -450,7 +450,7 @@
                   <outPort Id="f809dd89-dfd1-4a9c-b564-edd028e8e837" name="OrOut" portName="OrOut" assignedVariable="ServoSto1" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="95f26829-361c-4c59-b0a5-8c2e0541f55e">
-                        <portMapping Id="1cce5268-e790-44e8-8ce3-5d74cb102a46" name="FBOr1_OrOut_mapping" direction="output" dataType="safeBool" assignedVariable="ServoSto1" physicalPorts="ServoSto.Out;Term 7 (EL2904) - Module 1 (FSOES).OutputChannel1">
+                        <portMapping Id="1cce5268-e790-44e8-8ce3-5d74cb102a46" name="FBOr1_OrOut_mapping" direction="output" dataType="safeBool" assignedVariable="ServoSto1" physicalPorts="28.Out;10.OutputChannel1">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="2622e960-dc6d-4479-84b0-ef4e1365ff4f">
                               <aliasPort Id="eb4275b9-dd80-45a8-acc9-cf08ddc3cb48" name="SdsId28.ChannelId1" sdsId="28" channelId="1" channelName="Out" functionId="1131179972" />
@@ -474,7 +474,7 @@
                   <inPort Id="37f0be95-724d-4b0b-ab86-e5ddeab69f36" name="AndIn1" portName="AndIn1" assignedVariable="STOBypass" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="fd6b39d6-d09a-4c8b-bad0-b53f9407f05d">
-                        <portMapping Id="7eae98e6-5e7b-419b-a3de-acc58a88012b" name="FBAnd2_AndIn1_mapping" direction="input" dataType="safeBool" assignedVariable="STOBypass" physicalPorts="STOBypass.In">
+                        <portMapping Id="7eae98e6-5e7b-419b-a3de-acc58a88012b" name="FBAnd2_AndIn1_mapping" direction="input" dataType="safeBool" assignedVariable="STOBypass" physicalPorts="24.In">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="b1b87b64-4c35-4ee8-a288-0970f3a617c8">
                               <aliasPort Id="289c1f1b-b4ce-4084-8ede-c4560c9f6dc2" name="SdsId24.ChannelId1" sdsId="24" channelId="1" channelName="In" functionId="1131179973" />
@@ -533,7 +533,7 @@
                   <inPort Id="b903c2d1-f4f5-4b6b-93ae-367661c4e370" name="AndIn1" portName="AndIn1" assignedVariable="AirChokeOff" portNum="2" objectIndex="8" varId="2" filter="3" portDataType="1" channelInterface="Activated" deactivate1="Make Contact (NO)" maxDeviation="0" resetTime="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="e7c46866-6f1d-446f-927a-c72fd05b8a92">
-                        <portMapping Id="19d7029d-2e8f-4dbe-804d-3c3a99ba7425" name="FBAnd1_AndIn1_mapping" direction="input" dataType="safeBool" assignedVariable="AirChokeOff" physicalPorts="airChockOff.In">
+                        <portMapping Id="19d7029d-2e8f-4dbe-804d-3c3a99ba7425" name="FBAnd1_AndIn1_mapping" direction="input" dataType="safeBool" assignedVariable="AirChokeOff" physicalPorts="32.In">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="18a69ab2-df26-464e-be71-19ab5f8a7e97">
                               <aliasPort Id="57c72ae3-f98f-43cf-b37c-2e8607d45fe1" name="SdsId32.ChannelId1" sdsId="32" channelId="1" channelName="In" functionId="1131179973" />
@@ -571,7 +571,7 @@
                   <outPort Id="7538226d-46da-4493-9fed-353f3d4471dc" name="AndOut" portName="AndOut" assignedVariable="AirChoke" portNum="8" objectIndex="1" varId="20" filter="7" portDataType="1" replacementValue="0">
                     <portMappings>
                       <functionBlockPortHasPortMappings Id="95d2d4ed-2aad-4469-a24a-32727f613473">
-                        <portMapping Id="ef7db7ee-2523-4821-8256-8c73cc70e7f8" name="FBAnd1_AndOut_mapping" direction="output" dataType="safeBool" assignedVariable="AirChoke" physicalPorts="AirChoke.Out;Term 7 (EL2904) - Module 1 (FSOES).OutputChannel2">
+                        <portMapping Id="ef7db7ee-2523-4821-8256-8c73cc70e7f8" name="FBAnd1_AndOut_mapping" direction="output" dataType="safeBool" assignedVariable="AirChoke" physicalPorts="29.Out;10.OutputChannel2">
                           <aliasPorts>
                             <portMappingHasAliasPorts Id="bf0242ac-0185-4185-a3c3-b05f32e23630">
                               <aliasPort Id="c2ca620e-6ad5-4c23-b591-f07195da7725" name="SdsId29.ChannelId1" sdsId="29" channelId="1" channelName="Out" functionId="1131179972" />
