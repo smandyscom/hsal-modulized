@@ -2087,9 +2087,8 @@ External Setpoint Generation:
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="8388608" Inverse="true" MaxCount="#xffffffff">
-							<SoftEndMinControl Enable="true" Range="-200"/>
+							<SoftEndMinControl Enable="true" Range="-300"/>
 							<SoftEndMaxControl Enable="true" Range="10"/>
-							<ParameterChanged>13</ParameterChanged>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -2529,6 +2528,10 @@ External Setpoint Generation:
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
+						<Var>
+							<Name>GVL.ioConveyor.overheat</Name>
+							<Type>BIT</Type>
+						</Var>
 						<Var>
 							<Name>GVL.ioSafety.safeComErr</Name>
 							<Type>BIT</Type>
@@ -3020,10 +3023,6 @@ External Setpoint Generation:
 								</Comment>
 							</SubVar>
 						</Var>
-						<Var>
-							<Name>MAIN_D.ConveyorMaster.overheat</Name>
-							<Type>BOOL</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
@@ -3057,6 +3056,10 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioControl.towerBuzzer</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioConveyor.run</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -3261,13 +3264,6 @@ External Setpoint Generation:
 						<Var>
 							<Name>GVL.axisControls[5].Axis.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
-						</Var>
-						<Var>
-							<Name>MAIN_D.ConveyorMaster.run</Name>
-							<Comment>
-								<![CDATA[output bit to I/O motor]]>
-							</Comment>
-							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<TaskPouOids>
@@ -5249,7 +5245,7 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 15" Index="#x1a0e" Flags="#x0011" SyncMan="0">
-								<Entry Name="Input" Index="#x60e0" Sub="#x01">
+								<Entry Name="Vs02" Index="#x60e0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -5328,12 +5324,12 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 13" Index="#x160c" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70c0" Sub="#x01">
+								<Entry Name="Vb02" Index="#x70c0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 14" Index="#x160d" InOut="1" Flags="#x0011" SyncMan="1">
-								<Entry Name="Output" Index="#x70d0" Sub="#x01">
+								<Entry Name="Vg02" Index="#x70d0" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -6224,7 +6220,7 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerGreen" VarB="Channel 15^Tower(Green"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerRed" VarB="Channel 13^Tower(Red"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerYellow" VarB="Channel 14^Tower(Yellow"/>
-				<Link VarA="PlcTask Outputs^MAIN_D.ConveyorMaster.run" VarB="Channel 7^Md01"/>
+				<Link VarA="PlcTask Outputs^GVL.ioConveyor.run" VarB="Channel 7^Md01"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^1+DO2">
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[13].ACT_B[1]" VarB="Channel 1^YCy06"/>
@@ -6238,13 +6234,13 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[2].SENSOR_A[1]" VarB="Channel 10^Cy02a"/>
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[2].SENSOR_B[1]" VarB="Channel 11^Cy02b"/>
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[3].SENSOR_B[1]" VarB="Channel 12^Cy03b"/>
+				<Link VarA="PlcTask Inputs^GVL.ioConveyor.overheat" VarB="Channel 15^Md01A"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[3].input" VarB="Channel 14^Sp02"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[5].input" VarB="Channel 5^Air"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[6].input" VarB="Channel 1^H1(Red"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[7].input" VarB="Channel 2^H2(Green"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[8].input" VarB="Channel 3^H3(Orange"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[9].input" VarB="Channel 4^H4(White"/>
-				<Link VarA="PlcTask Inputs^MAIN_D.ConveyorMaster.overheat" VarB="Channel 15^Md01A"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL6900)">
 				<Link VarA="PlcTask Inputs^GVL.ioSafety.airChoke" VarB="StandardInputs^Standard Out Var 29"/>
@@ -6280,6 +6276,7 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtRiblow" VarB="Channel 9^PRT.RIBLOW"/>
 				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtRibout" VarB="Channel 13^PRT.RIBOUT"/>
 				<Link VarA="PlcTask Inputs^GVL.ioPrinter.prtSerReq" VarB="Channel 10^PRT.SEVREQ"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[10].input" VarB="Channel 15^Vs02"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[4].input" VarB="Channel 16^Vs01"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 11 (EK1100)^+7-DI2">
@@ -6293,7 +6290,9 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[8].ACT_B[1]" VarB="Channel 1^YCy01(Label gripper vertical"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[9].ACT_B[1]" VarB="Channel 2^YCy02(Label gripper rotate"/>
 				<Link VarA="PlcTask Outputs^GVL.ioLabelHandler.breakGripper" VarB="Channel 15^Vb01"/>
+				<Link VarA="PlcTask Outputs^GVL.ioLabelHandler.breakPressor" VarB="Channel 13^Vb02"/>
 				<Link VarA="PlcTask Outputs^GVL.ioLabelHandler.vacuumGripper" VarB="Channel 16^Vg01"/>
+				<Link VarA="PlcTask Outputs^GVL.ioLabelHandler.vacuumPressor" VarB="Channel 14^Vg02"/>
 				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtFeed" VarB="Channel 10^PRT.FEED"/>
 				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtPause" VarB="Channel 11^PRT.PAUSE"/>
 				<Link VarA="PlcTask Outputs^GVL.ioPrinter.prtReprint" VarB="Channel 12^PRT.REPRINT"/>
