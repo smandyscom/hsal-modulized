@@ -3027,6 +3027,10 @@ External Setpoint Generation:
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
 						<Var>
+							<Name>GVL.ioConveyor.run</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
 							<Name>GVL.ioControl.lightRed</Name>
 							<Type>BIT</Type>
 						</Var>
@@ -3059,7 +3063,19 @@ External Setpoint Generation:
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioConveyor.run</Name>
+							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.breakGripper</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.breakPressor</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -3083,22 +3099,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.doorUnlockAll</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.breakGripper</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.breakPressor</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
