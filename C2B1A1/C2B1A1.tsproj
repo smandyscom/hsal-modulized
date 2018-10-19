@@ -913,7 +913,33 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
-							<Name>GVL.ioConveyor.overheat</Name>
+							<Name>GVL.ioET.o1</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o2</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o3</Name>
+							<Comment>
+								<![CDATA[pin7, attached]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o4</Name>
+							<Comment>
+								<![CDATA[pin8, OK/NG]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o5</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o6</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -968,30 +994,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.servoSto</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtRiblow</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtSerReq</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtEnd</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtPrtMout</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtRibout</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtData</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -1091,38 +1093,6 @@ External Setpoint Generation:
 							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.cylinderControls[13].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[13].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[14].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[14].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[15].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[15].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[16].SENSOR_A</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[16].SENSOR_B</Name>
-							<Type GUID="{CF887A53-7490-A600-6B5D-04343BF0EA04}">ARRAY [1..4] OF BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL.signalControls[1].input</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -1160,6 +1130,62 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.signalControls[10].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[11].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[12].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[13].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[14].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[15].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[16].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[17].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[18].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[19].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[20].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[21].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[22].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[23].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[24].input</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -1407,13 +1433,499 @@ External Setpoint Generation:
 								</Comment>
 							</SubVar>
 						</Var>
+						<Var>
+							<Name>GVL.axisControls[6].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[7].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[8].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[9].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[10].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[11].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[12].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[13].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[14].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[15].Axis.NcToPlc</Name>
+							<Type GUID="{6A65C767-34E5-42BF-AD87-E1A503EAC7BE}" Namespace="MC">NCTOPLC_AXIS_REF</Type>
+							<SubVar>
+								<Name>AxisState</Name>
+								<Comment>
+									<![CDATA[Present State Of The Axis Movement (continuous axis):
+0  = INACTIVE:		axis has no job
+1  = RUNNING:		axis is executing a motion job
+2  = OVERRIDE_ZERO:	axis is executing a job but override is zero
+3  = PHASE_VELOCONST:	axis is moving at constant velocity
+4  = PHASE_ACCPOS:	axis is accelerating
+5  = PHASE_ACCNEG:	axis is decelerating
+Slaves only:
+11 = PREPHASE:		slave axis is in a motion pre-phase
+12 = SYNCHRONIZING:	slave axis is synchronizing
+13 = SYNCHRONOUS:	slave axis is moving synchronously
+External Setpoint Generation:
+41 = EXTSETGEN_MODE1:	external setpoint generation active
+42 = EXTSETGEN_MODE2:	internal and external setpoint gen. active
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>HomingState</Name>
+								<Comment>
+									<![CDATA[Axis Homing Status:
+0: idle
+1: start homing
+2: searching home switch
+3: stopping on home switch
+4: moving off home switch
+5: searching sync pulse
+6: stopping after homing
+]]>
+								</Comment>
+							</SubVar>
+							<SubVar>
+								<Name>CoupleState</Name>
+								<Comment>
+									<![CDATA[Axis Coupling Status:
+0: axis is a single axis (not coupled)
+1: axis is a master axis
+2: axis is master and slave
+3: axis is a slave axis
+]]>
+								</Comment>
+							</SubVar>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2">
 						<Name>PlcTask Outputs</Name>
-						<Var>
-							<Name>GVL.ioConveyor.run</Name>
-							<Type>BIT</Type>
-						</Var>
 						<Var>
 							<Name>GVL.ioControl.lightRed</Name>
 							<Type>BIT</Type>
@@ -1447,19 +1959,19 @@ External Setpoint Generation:
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
+							<Name>GVL.ioET.external</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioLabelHandler.breakGripper</Name>
+							<Name>GVL.ioET.hipot</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
+							<Name>GVL.ioET.i1</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioLabelHandler.breakPressor</Name>
+							<Name>GVL.ioET.i2</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -1483,22 +1995,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.doorUnlockAll</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtStart</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtFeed</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtPause</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtReprint</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -1598,38 +2094,6 @@ External Setpoint Generation:
 							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>GVL.cylinderControls[13].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[13].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[14].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[14].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[15].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[15].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[16].ACT_A</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
-							<Name>GVL.cylinderControls[16].ACT_B</Name>
-							<Type GUID="{7871B701-39A2-2AF7-8AA0-D8DEC11CCCE9}">ARRAY [1..2] OF BOOL</Type>
-						</Var>
-						<Var>
 							<Name>GVL.axisControls[1].Axis.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
@@ -1647,6 +2111,46 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.axisControls[5].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[6].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[7].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[8].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[9].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[10].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[11].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[12].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[13].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[14].Axis.PlcToNc</Name>
+							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
+						</Var>
+						<Var>
+							<Name>GVL.axisControls[15].Axis.PlcToNc</Name>
 							<Type GUID="{63A84524-72E3-41C8-BEAB-4CCE44690A13}" Namespace="MC">PLCTONC_AXIS_REF</Type>
 						</Var>
 					</Vars>
