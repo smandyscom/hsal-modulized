@@ -1647,7 +1647,10 @@ External Setpoint Generation:
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
-						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff"/>
+						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff">
+							<SoftEndMinControl Enable="true" Range="-160"/>
+							<SoftEndMaxControl Enable="true" Range="-60"/>
+						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
 							<Var>
@@ -1858,7 +1861,10 @@ External Setpoint Generation:
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
-						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff"/>
+						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff">
+							<SoftEndMinControl Enable="true" Range="-60"/>
+							<SoftEndMaxControl Enable="true" Range="100"/>
+						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
 							<Var>
@@ -2069,7 +2075,10 @@ External Setpoint Generation:
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
-						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff"/>
+						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff">
+							<SoftEndMinControl Enable="true" Range="60"/>
+							<SoftEndMaxControl Enable="true" Range="160"/>
+						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
 							<Var>
@@ -4399,6 +4408,36 @@ External Setpoint Generation:
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
 						<Var>
+							<Name>GVL.ioET.o1</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o2</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o3</Name>
+							<Comment>
+								<![CDATA[pin7, attached]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o4</Name>
+							<Comment>
+								<![CDATA[pin8, OK/NG]]>
+							</Comment>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o5</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.o6</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
 							<Name>GVL.ioSafety.safeComErr</Name>
 							<Type>BIT</Type>
 						</Var>
@@ -4450,36 +4489,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.servoSto</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.o1</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.o2</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.o3</Name>
-							<Comment>
-								<![CDATA[pin7, attached]]>
-							</Comment>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.o4</Name>
-							<Comment>
-								<![CDATA[pin8, OK/NG]]>
-							</Comment>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.o5</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.o6</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -4696,6 +4705,10 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.signalControls[24].input</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>GVL.signalControls[25].input</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -5469,6 +5482,22 @@ External Setpoint Generation:
 							<Type>BIT</Type>
 						</Var>
 						<Var>
+							<Name>GVL.ioET.external</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.hipot</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.i1</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioET.i2</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
 							<Name>GVL.ioSafety.safeAck</Name>
 							<Type>BIT</Type>
 						</Var>
@@ -5489,22 +5518,6 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.doorUnlockAll</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.external</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.hipot</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.i1</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioET.i2</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -6647,7 +6660,7 @@ External Setpoint Generation:
 										<Data>96000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="21" MotorDataLevel="1" DisableMode="0">
-										<Data>62000000</Data>
+										<Data>c8000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="23" MotorDataLevel="0" DisableMode="0">
 										<Data>0a000000</Data>
@@ -6857,7 +6870,7 @@ External Setpoint Generation:
 							<MBoxUserCmdData>020003000c0000001600000000000000000000000000000000000000000000002011801b040000007a0d00004d6f746f72207370656564206c696d69746174696f6e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001e000000000000000000000000000000000000000000000020108013020000004c0143757272656e74206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001a00000000000000000000000000000000000000000000002010801202000000050043757272656e74206c6f6f7020696e74656772616c2074696d6500</MBoxUserCmdData>
-							<MBoxUserCmdData>020003000c0000001f000000000000000000000000000000000000000000000020108015040000006200000056656c6f63697479206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
+							<MBoxUserCmdData>020003000c0000001f00000000000000000000000000000000000000000000002010801504000000c800000056656c6f63697479206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000c0000001b000000000000000000000000000000000000000000000020108014040000009600000056656c6f63697479206c6f6f7020696e74656772616c2074696d6500</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000c0000001f000000000000000000000000000000000000000000000020108017040000000a000000506f736974696f6e206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>02000300090000001200000000000000000000000000000000000000000000002010700301000000084d6f646573206f66206f7065726174696f6e00</MBoxUserCmdData>
@@ -11874,7 +11887,7 @@ External Setpoint Generation:
 								</Entry>
 							</Pdo>
 							<Pdo Name="Channel 3" Index="#x1602" InOut="1" Flags="#x0011" SyncMan="0">
-								<Entry Name="Output" Index="#x7020" Sub="#x01">
+								<Entry Name="CyB3" Index="#x7020" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
 							</Pdo>
@@ -13422,11 +13435,14 @@ External Setpoint Generation:
 							<Entry Name="SpB1" Index="#x6000" Sub="#x03">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID03" Index="#x6000" Sub="#x04">
+							<Entry Name="SpB3" Index="#x6000" Sub="#x04">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID04" Index="#x6000" Sub="#x05">
+							<Entry Name="SpB4" Index="#x6000" Sub="#x05">
 								<Type>BIT</Type>
+								<Comment>
+									<![CDATA[Approximity]]>
+								</Comment>
 							</Entry>
 							<Entry Name="CyB1b" Index="#x6000" Sub="#x06">
 								<Type>BIT</Type>
@@ -13434,10 +13450,10 @@ External Setpoint Generation:
 							<Entry Name="CyB2b" Index="#x6000" Sub="#x07">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID07" Index="#x6000" Sub="#x08">
+							<Entry Name="CyB3a" Index="#x6000" Sub="#x08">
 								<Type>BIT</Type>
 							</Entry>
-							<Entry Name="Output ID08" Index="#x6000" Sub="#x09">
+							<Entry Name="CyB3b" Index="#x6000" Sub="#x09">
 								<Type>BIT</Type>
 							</Entry>
 							<Entry Name="SpB2" Index="#x6000" Sub="#x0a">
@@ -16320,12 +16336,16 @@ External Setpoint Generation:
 		</OwnerA>
 		<OwnerA Name="TIPC^Untitled1^Untitled1 Instance">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^10+B1">
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[13].SENSOR_A[1]" VarB="Output TxPDO-Map^CyB3a"/>
+				<Link VarA="PlcTask Inputs^GVL.cylinderControls[13].SENSOR_B[1]" VarB="Output TxPDO-Map^CyB3b"/>
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[7].SENSOR_B[1]" VarB="Output TxPDO-Map^CyB1b"/>
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[8].SENSOR_B[1]" VarB="Output TxPDO-Map^CyB2b"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[16].input" VarB="Output TxPDO-Map^SfB1"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[17].input" VarB="Output TxPDO-Map^SfB2"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[18].input" VarB="Output TxPDO-Map^SpB1"/>
 				<Link VarA="PlcTask Inputs^GVL.signalControls[19].input" VarB="Output TxPDO-Map^SpB2"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[22].input" VarB="Output TxPDO-Map^SpB4"/>
+				<Link VarA="PlcTask Inputs^GVL.signalControls[24].input" VarB="Output TxPDO-Map^SpB3"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^2+B1">
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[1].SENSOR_B[1]" VarB="Output TxPDO-Map^CyA01b"/>
@@ -16378,6 +16398,7 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[6].ACT_B[1]" VarB="Channel 3^ACy03"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 22 (EK1100)^8+DO1">
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[13].ACT_B[1]" VarB="Channel 3^CyB3"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[7].ACT_B[1]" VarB="Channel 1^CyB1"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[8].ACT_B[1]" VarB="Channel 2^CyB2"/>
 			</OwnerB>
