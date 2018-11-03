@@ -1663,7 +1663,7 @@ External Setpoint Generation:
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="40" ScaleFactorDenominator="8388608" MaxCount="#xffffffff">
-							<SoftEndMinControl Enable="true" Range="15"/>
+							<SoftEndMinControl Enable="true" Range="-1000"/>
 							<SoftEndMaxControl Enable="true" Range="1000"/>
 						</EncPara>
 						<Vars VarGrpType="1">
@@ -1875,7 +1875,7 @@ External Setpoint Generation:
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="40" ScaleFactorDenominator="8388608" MaxCount="#xffffffff">
-							<SoftEndMinControl Enable="true" Range="100"/>
+							<SoftEndMinControl Enable="true" Range="-1000"/>
 							<SoftEndMaxControl Enable="true" Range="1000"/>
 						</EncPara>
 						<Vars VarGrpType="1">
@@ -2087,8 +2087,8 @@ External Setpoint Generation:
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="8388608" Inverse="true" MaxCount="#xffffffff">
-							<SoftEndMinControl Enable="true" Range="-300"/>
-							<SoftEndMaxControl Enable="true" Range="10"/>
+							<SoftEndMinControl Enable="true" Range="-1000"/>
+							<SoftEndMaxControl Enable="true" Range="1000"/>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -6208,7 +6208,7 @@ External Setpoint Generation:
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^1+DO1">
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[1].ACT_B[1]" VarB="Channel 1^Cy01(Holder"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[2].ACT_B[1]" VarB="Channel 2^Cy02(Pusher"/>
-				<Link VarA="PlcTask Outputs^GVL.cylinderControls[3].ACT_B[1]" VarB="Channel 3^Cy03(Unlocker"/>
+				<Link VarA="PlcTask Outputs^GVL.cylinderControls[2].ACT_B[2]" VarB="Channel 3^Cy03(Unlocker"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[4].ACT_B[1]" VarB="Channel 4^Cy04(Holder"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[5].ACT_B[1]" VarB="Channel 5^Cy05(Connector holder"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[6].ACT_B[1]" VarB="Channel 6^Cy06(PnP"/>
