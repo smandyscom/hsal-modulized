@@ -1408,6 +1408,12 @@ External Setpoint Generation:
 	<Project ProjectGUID="{0CAC45E8-B263-49B9-AD49-4EE8BDF963DC}" TargetNetId="5.58.198.104.1.1" ShowHideConfigurations="#x306">
 		<System>
 			<Settings MaxCpus="2"/>
+			<Licenses>
+				<Target BkhfOrder="2449501" CustomOrder="MX">
+					<ManualSelect>{6952449D-F68C-49A2-ADE4-8639D85B33A4}</ManualSelect>
+					<ManualSelect>{BF78CFC7-2E63-42C3-8C07-BB6C346BFB8B}</ManualSelect>
+				</Target>
+			</Licenses>
 			<Tasks>
 				<Task Id="2" Priority="20" CycleTime="100000" AmsPort="350" AdtTasks="true">
 					<Name>PlcTask</Name>
@@ -1644,12 +1650,13 @@ External Setpoint Generation:
 				<Axis CreateSymbols="true" AxisType="1" Id="2">
 					<Name>Ms2</Name>
 					<AxisPara>
+						<TargetPosControl Range="0.1"/>
 						<OtherSettings AllowMotionCmdToSlave="true"/>
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff">
-							<SoftEndMinControl Enable="true" Range="-160"/>
-							<SoftEndMaxControl Enable="true" Range="-60"/>
+							<SoftEndMinControl Range="-160"/>
+							<SoftEndMaxControl Range="-60"/>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -1862,8 +1869,8 @@ External Setpoint Generation:
 					</AxisPara>
 					<Encoder Name="Enc" EncType="19">
 						<EncPara ScaleFactorNumerator="10" ScaleFactorDenominator="1048576" Inverse="true" MaxCount="#xffffffff">
-							<SoftEndMinControl Enable="true" Range="-60"/>
-							<SoftEndMaxControl Enable="true" Range="100"/>
+							<SoftEndMinControl Range="-60"/>
+							<SoftEndMaxControl Range="100"/>
 						</EncPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -12589,7 +12596,7 @@ External Setpoint Generation:
 										<Data>96000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="21" MotorDataLevel="1" DisableMode="0">
-										<Data>62000000</Data>
+										<Data>c8000000</Data>
 									</InitCmd>
 									<InitCmd Index="32784" SubIndex="23" MotorDataLevel="0" DisableMode="0">
 										<Data>0a000000</Data>
@@ -12799,9 +12806,10 @@ External Setpoint Generation:
 							<MBoxUserCmdData>020003000c0000001600000000000000000000000000000000000000000000002011801b040000007a0d00004d6f746f72207370656564206c696d69746174696f6e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001e000000000000000000000000000000000000000000000020108013020000004c0143757272656e74206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000a0000001a00000000000000000000000000000000000000000000002010801202000000050043757272656e74206c6f6f7020696e74656772616c2074696d6500</MBoxUserCmdData>
-							<MBoxUserCmdData>020003000c0000001f000000000000000000000000000000000000000000000020108015040000006200000056656c6f63697479206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
+							<MBoxUserCmdData>020003000c0000001f00000000000000000000000000000000000000000000002010801504000000c800000056656c6f63697479206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<MBoxUserCmdData>020003000c0000001b000000000000000000000000000000000000000000000020108014040000009600000056656c6f63697479206c6f6f7020696e74656772616c2074696d6500</MBoxUserCmdData>
 							<MBoxUserCmdData>02000300090000001200000000000000000000000000000000000000000000002010700301000000084d6f646573206f66206f7065726174696f6e00</MBoxUserCmdData>
+							<MBoxUserCmdData>020003000c0000001f000000000000000000000000000000000000000000000020108017040000000a000000506f736974696f6e206c6f6f702070726f706f7274696f6e616c206761696e00</MBoxUserCmdData>
 							<Pdo Name="FB Position" Index="#x1a00" Flags="#x0000" SyncMan="3">
 								<Entry Name="Position" BitLen="32" Index="#x6000" Sub="#x11">
 									<Type>UDINT</Type>
@@ -16377,6 +16385,14 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[1].ACT_B[1]" VarB="Channel 1^Cy01"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[2].ACT_B[1]" VarB="Channel 2^Cy02"/>
 				<Link VarA="PlcTask Outputs^GVL.cylinderControls[3].ACT_B[1]" VarB="Channel 3^Cy03"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightGreen" VarB="Channel 10^H2Green"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightRed" VarB="Channel 9^H1Red"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightWhite" VarB="Channel 12^H4White"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.lightYellow" VarB="Channel 11^H3Orange"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerBuzzer" VarB="Channel 16^TowerBuzzer"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerGreen" VarB="Channel 15^TowerGreen"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerRed" VarB="Channel 13^TowerRed"/>
+				<Link VarA="PlcTask Outputs^GVL.ioControl.towerYellow" VarB="Channel 14^TowerYellow"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 17 (EK1100)^7+DI1">
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[11].SENSOR_A[1]" VarB="Channel 3^ACy04a"/>
