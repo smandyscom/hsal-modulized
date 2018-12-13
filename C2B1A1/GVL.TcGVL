@@ -10,8 +10,6 @@ VAR_GLOBAL
 	
 	cylinderControls : ARRAY[1..15] OF RunCylinder;
 	signalControls : ARRAY[1..25] OF RunSignal;
-	
-	
 	axisControls: ARRAY[1..15] OF RunAxis;
 	//
 	materialSlots : ARRAY[1..5] OF RunMaterial;	//B1 , A1*3
