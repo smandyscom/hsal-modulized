@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+  <Port>502</Port>
+  <IpAddr/>
+  <Mapping>
+    <OutputRegisters>
+      <MappingInfo>
+        <AdsPort>851</AdsPort>
+        <StartAddress>0</StartAddress>
+        <EndAddress>255</EndAddress>
+        <VarName>MAIN.FrontHandshaking.registers</VarName>
+      </MappingInfo>
+    </OutputRegisters>
+  </Mapping>
+</Configuration>
