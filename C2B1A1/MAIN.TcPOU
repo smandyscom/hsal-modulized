@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <POU Name="MAIN" Id="{bbe2a781-9716-4ff3-acb6-ab90a53caf93}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	//Module C2B1A1
+	Semephore : SemephoreV1(argIo:= adr(gvl.ioControl));
+	//Stations
+	Controller : RunUnitController(argParent:= ADR(Controller), argSlotBase:= 0, argSlotLast:= 0,
+									argPbRed:= ADR(gvl.signalControls[H1Red]),
+									argPbGreen:= ADR(gvl.signalControls[H2Green]),
+									argPbYellow:= ADR(gvl.signalControls[H3Orange]),
+									argInterfaceControl := ADR(gvl.interfaceControl),
+									argInterfaceManual := ADR(gvl.InterfaceManual));
+	ConveyorProxy : RunUnitIndexerMaster(argParent:= ADR(Controller), 
+												argSlotBase:= 0, 
+												argSlotLast:= 0,
+												argAxis:=0,
+												argUpstream:=0); //hi hellow
+	//-----------------------------------
+	//	Group B,C (A Alarm wont affect?
+	//-----------------------------------
+	ConveyorMasterB : RunUnitCellularA(argParent:= ADR(Controller), 
+												argSlotBase:= ADR(GVL.materialSlots[materialB1]), 
+												argSlotLast:= ADR(GVL.materialSlots[materialB1]),
+												argUpstream:=ADR(LinearTransporter),
+												argAxis := ADR(GVL.axisControls[MsB1Conveyor]));
+	LifterCellularB : RunLifterCelluar(argParent:= ADR(ConveyorMasterB),
+										argSlotBase:= ADR(gvl.materialSlots[materialB1]), 
+									argSlotLast:= ADR(gvl.materialSlots[materialB1]),
+									argAxisVertical:= ADR(gvl.axisControls[MsB3Lifter2]),
+									argAxisHorizon := 0,
+									argCylinder:= ADR(gvl.cylinderControls[CyB2]),		
+									argObstacleSensor:=ADR(gvl.signalControls[SfB2]),
+									argReachSensor:= ADR(gvl.signalControls[SpB2]));
+	InputStation : RunInputV1(argParent:= ADR(ConveyorMasterB), 
+							argSlotBase:= ADR(GVL.materialSlots[materialB1]), 
+							argSlotLast:= ADR(GVL.materialSlots[materialB1]),
+							argWorkingSignal := ADR(LifterCellularB.slaveWorkingSignal[1]),
+							argClamper := ADR(gvl.cylinderControls[CyB3]));
+	LinearTransporter : RunUnitCellularC(argParent:= ADR(ConveyorMasterB), 
+										argSlotBase:= 0, 
+										argSlotLast:= 0,
+										argUpstream := ADR(ConveyorProxy),
+										argLinear := ADR(GVL.axisControls[CMs1Linear]),
+										argRotator := ADR(GVL.axisControls[CMs2Rotator]),
+										argReachSensor := ADR(gvl.signalControls[CSp1]),
+										argInterfereSensor := ADR(gvl.signalControls[Dummy]),
+										argHolderCylinder := ADR(gvl.cylinderControls[CCy1]),
+										argPusherCylinder := ADR(gvl.cylinderControls[CCy2]));
+									
+	//----------------------------------
+	//	Group A
+	//----------------------------------
+	ConveyorMasterA : RunUnitCellularA(argParent:= ADR(Controller), 
+												argSlotBase:= ADR(GVL.materialSlots[materialA1]), 
+												argSlotLast:= ADR(GVL.materialSlots[materialA3]),
+												argUpstream:=ADR(ConveyorMasterB),
+												argAxis := ADR(GVL.axisControls[Ms1Conveyor]));
+	LifterCellularA : ARRAY[1..3] OF RunLifterCelluar(argParent:= ADR(ConveyorMasterA),
+										argSlotBase:= 0, 
+									argSlotLast:= 0,
+									argAxisVertical:= 0,
+									argAxisHorizon := 0,
+									argCylinder:=0,		
+									argObstacleSensor:= 0,
+									argReachSensor:= 0);
+	ETTest : RunETest(argParent:= ADR(ConveyorMasterA), 
+												argSlotBase:= ADR(GVL.materialSlots[materialA1]), 
+												argSlotLast:= ADR(GVL.materialSlots[materialA1]),
+												argWorkingSignal := ADR(LifterCellularA[1].slaveWorkingSignal[1]),
+												argAxis1 := ADR(GVL.axisControls[AMs1Swing]),
+												argAxis2 := ADR(GVL.axisControls[Ms2Shift1]),//horizon,
+												argConnectorHolder:=ADR(gvl.cylinderControls[ACy02]),
+												argCableHolder:=ADR(gvl.cylinderControls[ACy03]),
+												argPlugin:=ADR(gvl.cylinderControls[ACy01]),
+												argTongueExistedA:=ADR(gvl.signalControls[ASp01]),
+												argTongueExistedB:=ADR(gvl.signalControls[ASp02]),
+												argTongueGlueA:=ADR(gvl.signalControls[ASp03]),
+												argTongueGlueB:=ADR(gvl.signalControls[ASp04]),
+												argIoBundle := ADR(gvl.ioET),
+												argSideAligner:=0);
+	FrontInspection : RunAxisAoiView(argParent:= ADR(ConveyorMasterA), 
+												argSlotBase:= ADR(GVL.materialSlots[materialA3]), 
+												argSlotLast:= ADR(GVL.materialSlots[materialA3]),
+												argWorkingSignal := ADR(LifterCellularA[3].slaveWorkingSignal[1]),
+												argAxis1 := ADR(GVL.axisControls[AMs2Front]), //vertical
+												argAxis2 := 0,
+												argSideAligner:=ADR(gvl.cylinderControls[ACy05]));	
+	FrontHandshaking : RunAoiHandshaking(argParent:= 0, 
+										argSlotBase:= ADR(GVL.materialSlots[materialA3]), 
+										argSlotLast:= ADR(GVL.materialSlots[materialA3]),
+										argWorkingSignal := ADR(FrontInspection.slaveWorkingSignal[1]));
+	//! For Clear function of input station
+	localMaterialRemains : UINT;
+	externalMaterialRemains1 AT%M* : UINT;	//be written by other controller
+	externalMaterialRemains2 AT%M* : UINT;	//be written by other controller
+																					
+	nCounter : INT; //comment
+	
+END_VAR
+VAR CONSTANT
+	//Axis
+	Ms1Conveyor : INT :=1;
+Ms2Shift1 : INT :=2;
+Ms3Shift2 : INT :=3;
+Ms4Shift3 : INT :=4;
+Ms5Lift1 : INT :=5;
+Ms6Lift2 : INT :=6;
+Ms7Lift3 : INT :=7;
+AMs1Swing : INT :=8;
+AMs2Front : INT :=9;
+MsB1Conveyor : INT :=10;
+MsB2Lifter1 : INT :=11;
+MsB3Lifter2 : INT :=12;
+CMs1Linear : INT :=13;
+CMs2Rotator : INT :=14;	
+	//Cylinders
+	Cy01 : INT :=1;
+Cy02 : INT :=2;
+Cy03 : INT :=3;
+ACy04 : INT :=11;
+ACy05 : INT :=12;
+CCy1 : INT :=9;
+CCy2 : INT :=10;
+ACy01 : INT :=4;
+ACy02 : INT :=5;
+ACy03 : INT :=6;
+CyB1 : INT :=7;
+CyB2 : INT :=8;
+CyB3 : INT :=13;
+
+	//Signals
+	H1Red : INT := 1;
+H2Green : INT := 2;
+H3Orange : INT := 3;
+H4White : INT := 4;
+Air : INT := 5;
+SfA01 : INT := 6;
+SfA02 : INT := 7;
+SfA03 : INT := 8;
+SpA01 : INT := 9;
+SpA02 : INT := 10;
+SpA03 : INT := 11;
+ASp01 : INT := 12;
+ASp02 : INT := 13;
+ASp03 : INT := 14;
+ASp04 : INT := 15;
+SfB1 : INT := 16;
+SfB2 : INT := 17;
+SpB1 : INT := 18;
+SpB2 : INT := 19;
+H1 : INT := 20;
+H2 : INT := 21;
+CSp1 : INT := 23;
+SpB3 : INT := 24;	//EH208 , material existed
+SpB4 : INT := 22;	//EH208 , material existed
+Dummy : INT := 25;
+	//Material slots
+	materialB1 : INT :=1;
+	materialA1 : INT :=2;
+	materialA2 : INT :=3;
+	materialA3 : INT :=4;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF GVL.ioSafety.safeAck AND NOT GVL.ioSafety.safeComErr THEN
+	GVL.ioSafety.safeAck := FALSE;
+	GVL.ioSafety.safeRun := TRUE;
+ELSIF NOT GVL.ioSafety.safeAck AND GVL.ioSafety.safeComErr THEN
+	GVL.ioSafety.safeAck := TRUE;
+	GVL.ioSafety.safeRun := FALSE;
+END_IF
+//
+IF NOT GVL.bObjectsLinked THEN
+	//link
+	gvl.stations[1] := ADR(LinearTransporter);
+	gvl.stations[2] := ADR(ConveyorMasterB);
+	gvl.stations[3] := ADR(inputStation);
+	gvl.stations[4] := ADR(LifterCellularB);
+	gvl.stations[5] := ADR(ConveyorMasterA);
+	gvl.stations[6] := ADR(LifterCellularA[1]);
+	gvl.stations[7] := ADR(LifterCellularA[2]);
+	gvl.stations[8] := ADR(LifterCellularA[3]);
+	gvl.stations[9] := ADR(ETTest);
+	gvl.stations[10] := ADR(FrontInspection);
+	gvl.stations[11] := ADR(FrontHandshaking);
+	
+	
+	FOR nCounter:=0 TO 2 BY 1 DO
+		LifterCellularA[nCounter+1].FB_init(bInitRetains:= FALSE, 
+		bInCopyCode:= FALSE, 
+		argParent:= ADR(Controller), 
+		argSlotBase:= ADR(gvl.materialSlots[materialA1+nCounter]), 
+		argSlotLast:= ADR(gvl.materialSlots[materialA1+nCounter]), 
+		argAxisVertical:= ADR(gvl.axisControls[Ms5Lift1+nCounter]),
+		argAxisHorizon := ADR(gvl.axisControls[Ms2Shift1+nCounter]),
+		argCylinder:= ADR(gvl.cylinderControls[Cy01+nCounter]),  
+		argObstacleSensor:=ADR(gvl.signalControls[SfA01+nCounter]) , 
+		argReachSensor:= ADR(gvl.signalControls[SpA01+nCounter]));
+	END_FOR
+	
+	gvl.bObjectsLinked := TRUE; //self-locked
+END_IF
+//control tower light/button light
+Semephore(currentMode:= Controller.currentMode, isError:= Controller.isError, isInitializing:= Controller.isInitializing);
+
+ConveyorProxy(
+	bEnStep:= , 
+	bTrigStep:= , 
+	bPause:= , 
+	bIsBypassed:= , 
+	bWorkingOverride:= , 
+	bMaterialOverride:= , 
+	slaveWorkingSignal:= , 
+	State=> , 
+	NextState=> , 
+	AlarmCode=> );
+Controller();//execute
+
+//ConveyorB linkage
+LifterCellularB.IsHit := ConveyorMasterB.triggerHit;
+LifterCellularB.IsReleased := ConveyorMasterB.triggerRelease;
+//link
+ConveyorMasterB.allHit := LifterCellularB.IsHit;
+ConveyorMasterB.allReach := LifterCellularB.IsReach;
+ConveyorMasterB.allRelease := LifterCellularB.IsReleased;
+//ConveyorA linkage
+ConveyorMasterA.allHit := TRUE;
+ConveyorMasterA.allReach := TRUE;
+ConveyorMasterA.allRelease := TRUE;
+FOR nCounter := 1 TO 3 BY 1 DO
+	LifterCellularA[nCounter].IsHit := ConveyorMasterA.triggerHit;
+	LifterCellularA[nCounter].IsReleased := ConveyorMasterA.triggerRelease;
+	//link
+	ConveyorMasterA.allHit := ConveyorMasterA.allHit AND LifterCellularA[nCounter].IsHit;
+	ConveyorMasterA.allReach := ConveyorMasterA.allReach AND LifterCellularA[nCounter].IsReach;
+	ConveyorMasterA.allRelease := ConveyorMasterA.allRelease AND LifterCellularA[nCounter].IsReleased;
+END_FOR
+
+//input station link , go when light screen off if material existed
+inputStation.handy := gvl.signalControls[h1].debouncedOn AND gvl.signalControls[h2].debouncedOn;
+inputStation.lightScreen := gvl.ioSafety.lightScreen;
+inputStation.materialValidSensor := gvl.signalControls[SpB3].debouncedOn AND gvl.signalControls[spB4].debouncedOn;
+
+localMaterialRemains := 0;
+FOR nCounter:=1 TO 5 BY 1 DO
+	IF gvl.materialSlots[nCounter].Valid THEN
+		localMaterialRemains := localMaterialRemains +1;
+	END_IF
+END_FOR
+inputStation.materialRemains := localMaterialRemains + externalMaterialRemains1 + externalMaterialRemains2;
+
+//main controller monitor
+gvl.interfaceControl.MonitorData(0,TO_DWORD(inputStation.inputCounter));
+]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="597" Count="1" />
+      <LineId Id="825" Count="0" />
+      <LineId Id="822" Count="2" />
+      <LineId Id="599" Count="0" />
+      <LineId Id="826" Count="0" />
+      <LineId Id="368" Count="2" />
+      <LineId Id="431" Count="1" />
+      <LineId Id="820" Count="0" />
+      <LineId Id="827" Count="3" />
+      <LineId Id="821" Count="0" />
+      <LineId Id="831" Count="0" />
+      <LineId Id="1341" Count="0" />
+      <LineId Id="1035" Count="0" />
+      <LineId Id="476" Count="0" />
+      <LineId Id="838" Count="0" />
+      <LineId Id="857" Count="8" />
+      <LineId Id="839" Count="0" />
+      <LineId Id="837" Count="0" />
+      <LineId Id="834" Count="0" />
+      <LineId Id="389" Count="1" />
+      <LineId Id="1186" Count="0" />
+      <LineId Id="1185" Count="0" />
+      <LineId Id="1187" Count="0" />
+      <LineId Id="392" Count="11" />
+      <LineId Id="439" Count="0" />
+      <LineId Id="880" Count="0" />
+      <LineId Id="885" Count="5" />
+      <LineId Id="410" Count="0" />
+      <LineId Id="869" Count="9" />
+      <LineId Id="866" Count="2" />
+      <LineId Id="1034" Count="0" />
+      <LineId Id="1342" Count="1" />
+      <LineId Id="1357" Count="0" />
+      <LineId Id="1356" Count="0" />
+      <LineId Id="1350" Count="0" />
+      <LineId Id="1352" Count="0" />
+      <LineId Id="1354" Count="1" />
+      <LineId Id="1353" Count="0" />
+      <LineId Id="1346" Count="0" />
+      <LineId Id="1348" Count="1" />
+      <LineId Id="1347" Count="0" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
