@@ -3063,22 +3063,6 @@ External Setpoint Generation:
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.breakGripper</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioLabelHandler.breakPressor</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
 							<Name>GVL.ioSafety.safeAck</Name>
 							<Type>BIT</Type>
 						</Var>
@@ -3115,6 +3099,22 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioPrinter.prtReprint</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.breakGripper</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.vacuumPressor</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioLabelHandler.breakPressor</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>

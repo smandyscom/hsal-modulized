@@ -4,19 +4,24 @@
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
 	//Module D	
-
+	Semephore : SemephoreV1(argIo:= ADR(gvl.ioControl));
 	//Stations
 	Controller : RunUnitController(argParent:= ADR(Controller), 
 									argSlotBase:= 0, 
 									argSlotLast:= 0,
 									argPbRed := ADR(gvl.signalControls[signalDummy]),
 									argPbYellow:=ADR(gvl.signalControls[signalDummy]),
-									argPbGreen:=ADR(gvl.signalControls[signalDummy]));
+									argPbGreen:=ADR(gvl.signalControls[signalDummy]),
+									argInterfaceControl := ADR(gvl.interfaceControl),
+									argInterfaceManual := ADR(gvl.InterfaceManual));
 	ConveyorProxy : RunUnitIndexerMaster(argParent:= ADR(Controller), 
 												argSlotBase:= 0, 
 												argSlotLast:= 0,
 												argAxis:=0,
 												argUpstream:=0);
+	//------------------------------
+	//	Group labelling handler
+	//------------------------------
 	LinearTransporter : RunUnitCellularC(argParent:= ADR(Controller), 
 										argSlotBase:= ADR(GVL.materialSlots[materialTransporter]), 
 										argSlotLast:= ADR(GVL.materialSlots[materialTransporter]),
@@ -27,24 +32,6 @@ VAR
 										argInterfereSensor := ADR(gvl.signalControls[signalInterfere]),
 										argHolderCylinder := ADR(gvl.cylinderControls[cy01Holder]),
 										argPusherCylinder := ADR(gvl.cylinderControls[cy02Pusher]));
-
-
-	LifterCellularA : RunLifterCelluar(argParent:= ADR(Controller), 
-									argSlotBase:= ADR(GVL.materialSlots[materialConveyor]), 
-									argSlotLast:= ADR(GVL.materialSlots[materialConveyor]),
-									argAxisVertical:= ADR(GVL.axisControls[axisLifter]),
-									argAxisHorizon := 0,
-									argCylinder:=ADR(GVL.cylinderControls[cy04ConveyorHolder]),		
-									argObstacleSensor:= ADR(gvl.signalControls[signalCellularObstacle]),
-									argReachSensor:= ADR(gvl.signalControls[signalCellularReach]));
-													
-	ConveyorMaster : RunUnitCellularAIO(argParent:= ADR(Controller), 
-												argSlotBase:= ADR(GVL.materialSlots[materialConveyor]), 
-												argSlotLast:= ADR(GVL.materialSlots[materialConveyor]),
-												argUpstream:=ADR(LinearTransporter),
-												argAxis := 0,
-												argIo := ADR(gvl.ioConveyor));
-												
 	CableHolder : RunCableHolder(argParent:= ADR(Controller), 
 								argSlotBase:= ADR(GVL.materialSlots[materialTransporter]), 
 								argSlotLast:= ADR(GVL.materialSlots[materialTransporter]),
@@ -68,10 +55,25 @@ VAR
 									argShifter := ADR(gvl.cylinderControls[cyY05LabelShifter]),
 									argIoPrinter := ADR(gvl.ioPrinter),
 									argIoVacuum := adr(gvl.ioLabelHandler));
-	
-									
+	//------------------------------
+	//	OK/NG output
+	//-------------------------------
+	ConveyorMaster : RunUnitCellularAIO(argParent:= ADR(Controller), 
+												argSlotBase:= ADR(GVL.materialSlots[materialConveyor1]), 
+												argSlotLast:= ADR(GVL.materialSlots[materialConveyor2]),
+												argUpstream:=ADR(LinearTransporter),
+												argAxis := 0,
+												argIo := ADR(gvl.ioConveyor));
+	LifterCellularA : RunLifterCelluar(argParent:= ADR(Controller), 
+									argSlotBase:= ADR(GVL.materialSlots[materialConveyor2]), 
+									argSlotLast:= ADR(GVL.materialSlots[materialConveyor2]),
+									argAxisVertical:= ADR(GVL.axisControls[axisLifter]),
+									argAxisHorizon := 0,
+									argCylinder:=ADR(GVL.cylinderControls[cy04ConveyorHolder]),		
+									argObstacleSensor:= ADR(gvl.signalControls[signalCellularObstacle]),
+									argReachSensor:= ADR(gvl.signalControls[signalCellularReach]));									
 	Output : RunGradeOutput(argParent:= ADR(Controller), 
-							argSlotBase:=  ADR(GVL.materialSlots[materialPickAndPlace]), 
+							argSlotBase:=  ADR(GVL.materialSlots[materialConveyor2]), 
 							argSlotLast:=  ADR(GVL.materialSlots[materialPickAndPlace]),
 							argWorkingSignal := ADR(LifterCellularA.slaveWorkingSignal[1]),
 							argAxisMoving := ADR(gvl.axisControls[axisPickAndPlace]),
@@ -80,7 +82,10 @@ VAR
 							argClamper:= ADR(gvl.cylinderControls[cy07Clamper]));
 																								
 	nCounter : INT; //comment
-	
+	//-----------------------------------
+	localMaterialRemains : INT;	
+	fbAdsSyncWriteRemainCount : FB_WriteAdsSymByName;
+	pollingTimer : TON;
 END_VAR
 VAR CONSTANT
 	//Axis
@@ -123,21 +128,25 @@ VAR CONSTANT
 	signalDummy : INT := 10;
 	//Material slots
 	materialTransporter : INT :=1;
-	materialConveyor : INT :=2;
-	materialPickAndPlace : INT :=3;
+	materialConveyor1 : INT :=2;
+	materialConveyor2 : INT :=3;
+	materialPickAndPlace : INT :=4;
+END_VAR
+VAR PERSISTENT
+	netId : T_AmsNetID;
+	port : T_AmsPort := 851; //Tc3
+	
+	varNameRemainCount : STRING;
 END_VAR]]></Declaration>
     <Implementation>
       <ST><![CDATA[IF GVL.ioSafety.safeAck AND NOT GVL.ioSafety.safeComErr THEN
 	GVL.ioSafety.safeAck := FALSE;
 	GVL.ioSafety.safeRun := TRUE;
-END_IF
-IF NOT gvl.ioSafety.safeAck AND gvl.ioSafety.safeComErr THEN
+ELSIF NOT gvl.ioSafety.safeAck AND gvl.ioSafety.safeComErr THEN
 	GVL.ioSafety.safeAck := TRUE;
 	GVL.ioSafety.safeRun := FALSE;
 END_IF
-IF NOT gvl.ioSafety.safeRun AND NOT gvl.ioSafety.safeComErr THEN
-	GVL.ioSafety.safeRun := TRUE;
-END_IF
+
 //
 IF NOT GVL.bObjectsLinked THEN
 	//link
@@ -150,9 +159,12 @@ IF NOT GVL.bObjectsLinked THEN
 	
 	gvl.bObjectsLinked := TRUE; //self-locked
 	
-	GVL.ioSafety.safeAck := TRUE;
 END_IF
-
+//control tower light/button light
+Semephore(currentMode:= Controller.currentMode, 
+			isError:= Controller.isError, 
+			isInitializing:= Controller.isInitializing);
+			
 ConveyorProxy(
 	bEnStep:= , 
 	bTrigStep:= , 
@@ -165,27 +177,44 @@ ConveyorProxy(
 	NextState=> , 
 	AlarmCode=> );
 Controller();//execute
-//Transmit
-//ConveyorMaster.syncAcknowledged := gvl.downstreamSyncAcknowledged;
-//gvl.downstreamSyncEngaged := ConveyorMaster.syncEngaged;
-
+//------------------------
 //Lifter and cellular link
+//------------------------
 LifterCellularA.IsHit := ConveyorMaster.triggerHit;
 LifterCellularA.IsReleased := ConveyorMaster.triggerRelease;
 
 ConveyorMaster.allHit := LifterCellularA.IsHit;
 ConveyorMaster.allReach := LifterCellularA.IsReach;
 ConveyorMaster.allRelease := LifterCellularA.IsReleased;
-]]></ST>
+//-----------------------
+//	Report material count
+//-----------------------
+localMaterialRemains := 0;
+FOR nCounter:=1 TO 4 BY 1 DO
+	IF gvl.materialSlots[nCounter].Valid THEN
+		localMaterialRemains := localMaterialRemains +1;
+	END_IF
+END_FOR
+fbAdsSyncWriteRemainCount(
+	bWrite:= pollingTimer.Q, 
+	sNetId:= netId, 
+	nPort:= port, 
+	sVarName:= varNameRemainCount, 
+	nSrcAddr:= ADR(localMaterialRemains), 
+	nLen:= SIZEOF(localMaterialRemains), 
+	tTimeout:= , 
+	eComMode:= , 
+	bBusy=> , 
+	bError=> , 
+	nErrorId=> );
+pollingTimer(IN:= NOT pollingTimer.Q, PT:= T#100MS, Q=> , ET=> );]]></ST>
     </Implementation>
     <LineIds Name="MAIN">
       <LineId Id="597" Count="1" />
       <LineId Id="717" Count="0" />
+      <LineId Id="918" Count="2" />
       <LineId Id="599" Count="0" />
-      <LineId Id="718" Count="1" />
-      <LineId Id="721" Count="0" />
-      <LineId Id="720" Count="0" />
-      <LineId Id="723" Count="2" />
+      <LineId Id="725" Count="0" />
       <LineId Id="722" Count="0" />
       <LineId Id="368" Count="2" />
       <LineId Id="431" Count="1" />
@@ -193,11 +222,18 @@ ConveyorMaster.allRelease := LifterCellularA.IsReleased;
       <LineId Id="477" Count="1" />
       <LineId Id="476" Count="0" />
       <LineId Id="389" Count="0" />
-      <LineId Id="589" Count="1" />
-      <LineId Id="390" Count="16" />
+      <LineId Id="589" Count="0" />
+      <LineId Id="390" Count="0" />
+      <LineId Id="921" Count="2" />
+      <LineId Id="391" Count="0" />
+      <LineId Id="924" Count="0" />
+      <LineId Id="392" Count="11" />
       <LineId Id="439" Count="0" />
-      <LineId Id="436" Count="2" />
+      <LineId Id="436" Count="0" />
+      <LineId Id="925" Count="0" />
+      <LineId Id="437" Count="1" />
       <LineId Id="407" Count="3" />
+      <LineId Id="897" Count="20" />
       <LineId Id="5" Count="0" />
     </LineIds>
   </POU>

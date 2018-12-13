@@ -74,10 +74,11 @@ VAR
 										argSlotLast:= ADR(GVL.materialSlots[materialA2]),
 										argWorkingSignal := ADR(TopInspection.slaveWorkingSignal[1]));
 	//-------------------------
-	localMaterialRemains : INT;																							
+																							
 	nCounter : INT; //comment
 	
 	//-----------------------------------
+	localMaterialRemains : INT;	
 	fbAdsSyncWriteRemainCount : FB_WriteAdsSymByName;
 	pollingTimer : TON;
 END_VAR

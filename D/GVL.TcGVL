@@ -14,9 +14,12 @@ VAR_GLOBAL
 	signalControls : ARRAY[1..10] OF RunSignal;
 	axisControls: ARRAY[1..5] OF RunAxis;
 	//
-	materialSlots  : ARRAY[1..4] OF RunMaterial;	
+	materialSlots  : ARRAY[1..4] OF RunMaterial; //Transporter , output1, output2 , PnP
 	stations : ARRAY[1..8] OF POINTER TO RunUnitGeneric;
 		
+	interfaceControl : InterfaceControlV1;
+	InterfaceManual : InterfaceManualV1;
+	
 	bObjectsLinked : BOOL;
 END_VAR]]></Declaration>
   </GVL>
