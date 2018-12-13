@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+  <GVL Name="GVL" Id="{e607aa11-c301-416f-9cbc-bc4f43af5299}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	//Module D
+	ioConveyor : ioBundleConveyor;
+	ioControl : ioBundleControl;
+	ioSafety : ioBundleSafety;
+	ioPrinter : ioBundlePrinterApplicator;
+	ioLabelHandler : ioBundleLabelGripper;
+
+	cylinderControls : ARRAY[1..16] OF RunCylinder;
+	signalControls : ARRAY[1..10] OF RunSignal;
+	axisControls: ARRAY[1..5] OF RunAxis;
+	//
+	materialSlots  : ARRAY[1..4] OF RunMaterial;	
+	stations : ARRAY[1..8] OF POINTER TO RunUnitGeneric;
+		
+	bObjectsLinked : BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>
