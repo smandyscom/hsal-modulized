@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.16">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -4214,13 +4214,13 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.lightScreen</Name>
+							<Comment>
+								<![CDATA[indirect status]]>
+							</Comment>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.airChoke</Name>
-							<Comment>
-								<![CDATA[indirect status]]>
-							</Comment>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -8888,7 +8888,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="13">
 					<Name>M7 (MADLN05BE)</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380004" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLN05BE" Desc="MADLN05BE" PortABoxInfo="#x0100000c">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380004" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLN05BE" Desc="MADLN05BE" PortABoxInfo="#x0100000c">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -8896,6 +8896,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -9100,7 +9101,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="14">
 					<Name>M6 (MADLN05BE)</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380004" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLN05BE" Desc="MADLN05BE" PortABoxInfo="#x0100000d">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380004" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLN05BE" Desc="MADLN05BE" PortABoxInfo="#x0100000d">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -9108,6 +9109,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -9312,7 +9314,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="15">
 					<Name>M5 (MADLN05BE)</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380004" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLN05BE" Desc="MADLN05BE" PortABoxInfo="#x0100000e">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380004" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLN05BE" Desc="MADLN05BE" PortABoxInfo="#x0100000e">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -9320,6 +9322,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -10779,7 +10782,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="36">
 					<Name>M13</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x02000021">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x02000021">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -10787,6 +10790,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -10991,7 +10995,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="37">
 					<Name>M12</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000024">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000024">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -10999,6 +11003,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -11203,7 +11208,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="38">
 					<Name>M11</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000025">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000025">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -11211,6 +11216,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -11415,7 +11421,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="39">
 					<Name>M10</Name>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000026">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000026">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -11423,6 +11429,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -12764,7 +12771,7 @@ External Setpoint Generation:
 						<![CDATA[Rotator]]>
 					</Comment>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x02000031">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x02000031">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -12772,6 +12779,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -12979,7 +12987,7 @@ External Setpoint Generation:
 						<![CDATA[Linear]]>
 					</Comment>
 					<ImageId>1006</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000033">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x60380006" RevisionNo="#x00010000" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" EnableWdDivider0400="true" EnableWdTime0420="true" TimeoutMailbox2="10000" PortPhys="17" IdentificationAdo="308" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLN25BE" Desc="MBDLN25BE" PortABoxInfo="#x01000033">
 						<SyncMan>001000012600010001000000200000010001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000280000010001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -12987,6 +12995,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>4443000000000000000000000000000044432053594e4330000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
