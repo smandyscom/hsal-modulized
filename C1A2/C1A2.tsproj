@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.16">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -5607,7 +5607,7 @@ External Setpoint Generation:
 								<Entry Name="FSOE__InputChannel1" Index="#x6001" Sub="#x01" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="FSOE__InputChannel2" Index="#x6001" Sub="#x02">
+								<Entry Name="FSOE__InputChannel2" Index="#x6001" Sub="#x02" Flags="#x00008020">
 									<Type>BIT</Type>
 								</Entry>
 								<Entry Name="FSOE__InputChannel3" Index="#x6001" Sub="#x03" Flags="#x00008020">
@@ -13317,18 +13317,6 @@ External Setpoint Generation:
 		<MappingInfo Identifier="{00000000-0020-0304-3000-040322000403}" Id="#x02030030"/>
 		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x02030010"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
-		<OwnerA Name="TIID^Device 1 (EtherCAT)">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL6900)">
-				<Link VarA="Term 1 (EK1200)^Term 5 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_9 RxPDO"/>
-				<Link VarA="Term 1 (EK1200)^Term 6 (EL2904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_10 RxPDO"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL1904)">
-				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_9 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 6 (EL2904)">
-				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_10 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
-			</OwnerB>
-		</OwnerA>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^BottomHorizon">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^M10">
 				<Link VarA="Drive^Inputs^In^nDataIn1" VarB="Transmit PDO mapping 1^Following error actual value"/>
@@ -13636,12 +13624,6 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerGreen" VarB="Channel 15^TowerGreen"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerRed" VarB="Channel 13^TowerRed"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerYellow" VarB="Channel 14^TowerYellow"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL1904)">
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.door1" VarB="Module 1 (FSOES)^TxPDO^FSOE^InputChannel3"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.door2" VarB="Module 1 (FSOES)^TxPDO^FSOE^InputChannel4"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop1" VarB="Module 1 (FSOES)^TxPDO^FSOE^InputChannel1"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop2" VarB="Module 1 (FSOES)^TxPDO^FSOE^InputChannel2"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 33 (EK1100)^7+DI1">
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[4].SENSOR_A[1]" VarB="Channel 1^FCy01a"/>
