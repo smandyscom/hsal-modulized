@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.16">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -1367,21 +1367,21 @@ External Setpoint Generation:
 			</SubItem>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
-			<BitSize>3</BitSize>
-			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
-			<ArrayInfo>
-				<LBound>0</LBound>
-				<Elements>3</Elements>
-			</ArrayInfo>
-		</DataType>
-		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
 			<BitSize>4</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
 				<LBound>0</LBound>
 				<Elements>4</Elements>
+			</ArrayInfo>
+		</DataType>
+		<DataType>
+			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
+			<BitSize>3</BitSize>
+			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
+			<ArrayInfo>
+				<LBound>0</LBound>
+				<Elements>3</Elements>
 			</ArrayInfo>
 		</DataType>
 		<DataType>
@@ -5272,7 +5272,7 @@ External Setpoint Generation:
 			</Project>
 		</Safety>
 		<Io>
-			<Device DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="10.221.24.70.2.1" RemoteName="Device 1 (EtherCAT)" Id="1">
+			<Device DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.58.198.104.2.1" RemoteName="Device 1 (EtherCAT)" Id="1">
 				<Name>Device 1 (EtherCAT)</Name>
 				<AddressInfo>
 					<Ccat>
@@ -5493,7 +5493,7 @@ External Setpoint Generation:
 							<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
 							<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
 							<SyncMan>00120f002400010003000000000000000200001224010000</SyncMan>
-							<SyncMan>001d0f002000010004000000000000000200001d20010000</SyncMan>
+							<SyncMan>001d10002000010004000000000000000200001d20010000</SyncMan>
 							<Fmmu>0000000000000000001200020100000001000000000000000000000000000000</Fmmu>
 							<Fmmu>0000000000000000001d00010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
@@ -5518,20 +5518,41 @@ External Setpoint Generation:
 								<Entry Name="Standard Out Var 12" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard Out Var 28" Index="#x7000" Sub="#x02">
+								<Entry Name="Standard Out Var 17" Index="#x7000" Sub="#x02">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard Out Var 29" Index="#x7000" Sub="#x03">
+								<Entry Name="Standard Out Var 18" Index="#x7000" Sub="#x03">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard Out Var 30" Index="#x7000" Sub="#x04">
+								<Entry Name="Standard Out Var 19" Index="#x7000" Sub="#x04">
 									<Type>BIT</Type>
 								</Entry>
-								<Entry Name="Standard Out Var 31" Index="#x7000" Sub="#x05">
+								<Entry Name="Standard Out Var 20" Index="#x7000" Sub="#x05">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 21" Index="#x7000" Sub="#x06">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 22" Index="#x7000" Sub="#x07">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 27" Index="#x7000" Sub="#x08">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 28" Index="#x7000" Sub="#x09">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 29" Index="#x7000" Sub="#x0a">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 30" Index="#x7000" Sub="#x0b">
+									<Type>BIT</Type>
+								</Entry>
+								<Entry Name="Standard Out Var 31" Index="#x7000" Sub="#x0c">
 									<Type>BIT</Type>
 								</Entry>
 								<Entry>
-									<Type GUID="{18071995-0000-0000-0000-002000000003}">ARRAY [0..2] OF BIT</Type>
+									<Type GUID="{18071995-0000-0000-0000-002000000004}">ARRAY [0..3] OF BIT</Type>
 								</Entry>
 							</Pdo>
 							<Pdo Name="StandardOutputs" Index="#x17f0" InOut="1" Flags="#x2011" SyncMan="2">
@@ -13317,6 +13338,16 @@ External Setpoint Generation:
 		<MappingInfo Identifier="{00000000-0020-0304-3000-040322000403}" Id="#x02030030"/>
 		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x02030010"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
+		<OwnerA Name="TIID^Device 1 (EtherCAT)">
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL6900)">
+				<Link VarA="Term 1 (EK1200)^Term 5 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_9 TxPDO"/>
+				<Link VarA="Term 1 (EK1200)^Term 5 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_9 RxPDO"/>
+				<Link VarA="Term 1 (EK1200)^Term 6 (EL2904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_10 RxPDO"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 6 (EL2904)">
+				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_10 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
+			</OwnerB>
+		</OwnerA>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^BottomHorizon">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^M10">
 				<Link VarA="Drive^Inputs^In^nDataIn1" VarB="Transmit PDO mapping 1^Following error actual value"/>
@@ -13624,6 +13655,18 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerGreen" VarB="Channel 15^TowerGreen"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerRed" VarB="Channel 13^TowerRed"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerYellow" VarB="Channel 14^TowerYellow"/>
+			</OwnerB>
+			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL6900)">
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.airChoke" VarB="StandardInputs^Standard Out Var 29"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.doorAll" VarB="StandardInputs^Standard Out Var 31"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop" VarB="StandardInputs^Standard Out Var 30"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.safeComErr" VarB="StandardInputs^Standard Out Var 12"/>
+				<Link VarA="PlcTask Inputs^GVL.ioSafety.servoSto" VarB="StandardInputs^Standard Out Var 28"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.airOff" VarB="StandardOutputs^Standard In Var 32"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.doorUnlockAll" VarB="StandardOutputs^Standard In Var 26"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.safeAck" VarB="StandardOutputs^Standard In Var 8"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.safeRun" VarB="StandardOutputs^Standard In Var 11"/>
+				<Link VarA="PlcTask Outputs^GVL.ioSafety.stoBypass" VarB="StandardOutputs^Standard In Var 24"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 33 (EK1100)^7+DI1">
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[4].SENSOR_A[1]" VarB="Channel 1^FCy01a"/>
