@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.16">
+<TcSmProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2012/07/TcSmProject" TcSmVersion="1.0" TcVersion="3.1.4022.27">
 	<DataTypes>
 		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-000000000035}" TcBaseType="true" HideType="true">UINTARR2</Name>
@@ -2366,6 +2366,7 @@ External Setpoint Generation:
 					<Drive Name="Drive" DrvType="5">
 						<DrvPara>
 							<Analog ScaleFactorActTorque="0.1"/>
+							<TimeComp TaskDelayCycles="1"/>
 						</DrvPara>
 						<Vars VarGrpType="1">
 							<Name>Inputs</Name>
@@ -2565,13 +2566,13 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.lightScreen</Name>
+							<Comment>
+								<![CDATA[indirect status]]>
+							</Comment>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
 							<Name>GVL.ioSafety.airChoke</Name>
-							<Comment>
-								<![CDATA[indirect status]]>
-							</Comment>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -3086,22 +3087,6 @@ External Setpoint Generation:
 							<Type>BIT</Type>
 						</Var>
 						<Var>
-							<Name>GVL.ioPrinter.prtStart</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtFeed</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtPause</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
-							<Name>GVL.ioPrinter.prtReprint</Name>
-							<Type>BIT</Type>
-						</Var>
-						<Var>
 							<Name>GVL.ioLabelHandler.vacuumGripper</Name>
 							<Type>BIT</Type>
 						</Var>
@@ -3115,6 +3100,22 @@ External Setpoint Generation:
 						</Var>
 						<Var>
 							<Name>GVL.ioLabelHandler.breakPressor</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioPrinter.prtStart</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioPrinter.prtFeed</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioPrinter.prtPause</Name>
+							<Type>BIT</Type>
+						</Var>
+						<Var>
+							<Name>GVL.ioPrinter.prtReprint</Name>
 							<Type>BIT</Type>
 						</Var>
 						<Var>
@@ -3887,7 +3888,7 @@ External Setpoint Generation:
 				<Box BoxType="9099" Id="9">
 					<Name>Drive 9 (MADLT05BF)</Name>
 					<ImageId>1004</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0004" RevisionNo="#x00010000" SerialNo="#x18050068" InfoDataAddr="true" InfoDataSoeDS401="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLT05BF" Desc="MADLT05BF" PortABoxInfo="#x01000008">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0004" RevisionNo="#x00010000" SerialNo="#x18050068" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MADLT05BF" Desc="MADLT05BF" PortABoxInfo="#x01000008">
 						<SyncMan>001000012600010001000000000000000001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000000000000001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -3895,6 +3896,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>444300000000000000000000000000004443000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -5445,7 +5447,7 @@ External Setpoint Generation:
 						<![CDATA[Label handler]]>
 					</Comment>
 					<ImageId>1004</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0006" RevisionNo="#x00010000" SerialNo="#x18010010" InfoDataAddr="true" InfoDataSoeDS401="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLT25BF" Desc="MBDLT25BF" PortABoxInfo="#x0200000b">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0006" RevisionNo="#x00010000" SerialNo="#x18010010" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLT25BF" Desc="MBDLT25BF" PortABoxInfo="#x0200000b">
 						<SyncMan>001000012600010001000000000000000001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000000000000001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -5453,6 +5455,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>444300000000000000000000000000004443000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -5660,7 +5663,7 @@ External Setpoint Generation:
 						<![CDATA[Pick and place]]>
 					</Comment>
 					<ImageId>1004</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0006" RevisionNo="#x00010000" SerialNo="#x18010010" InfoDataAddr="true" InfoDataSoeDS401="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLT25BF" Desc="MBDLT25BF" PortABoxInfo="#x0100000f">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0006" RevisionNo="#x00010000" SerialNo="#x18010010" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLT25BF" Desc="MBDLT25BF" PortABoxInfo="#x0100000f">
 						<SyncMan>001000012600010001000000000000000001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000000000000001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -5668,6 +5671,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>444300000000000000000000000000004443000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -5875,7 +5879,7 @@ External Setpoint Generation:
 						<![CDATA[Transporter]]>
 					</Comment>
 					<ImageId>1004</ImageId>
-					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0006" RevisionNo="#x00010000" SerialNo="#x18010010" InfoDataAddr="true" InfoDataSoeDS401="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLT25BF" Desc="MBDLT25BF" PortABoxInfo="#x01000010">
+					<EtherCAT SlaveType="2" PdiType="#x0c05" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="15" VendorId="#x0000066f" ProductCode="#x613c0006" RevisionNo="#x00010000" SerialNo="#x18010010" InfoDataAddr="true" InfoDataSoeDS401="true" InfoDataDcTimes="true" PortPhys="17" MaxSlotCount="256" MaxSlotGroupCount="1" SlotPdoIncrement="1" SlotIndexIncrement="16" Type="MBDLT25BF" Desc="MBDLT25BF" PortABoxInfo="#x01000010">
 						<SyncMan>001000012600010001000000000000000001001026010000</SyncMan>
 						<SyncMan>001200012200010002000000000000000001001222010000</SyncMan>
 						<SyncMan>001409006400010003000000000000000900001464010000</SyncMan>
@@ -5883,6 +5887,7 @@ External Setpoint Generation:
 						<Fmmu>0000000000000000001400020100000001000000000000000000000000000000</Fmmu>
 						<Fmmu>0000000000000000001600010100000002000000000000000000000000000000</Fmmu>
 						<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
+						<DcData>0003000000000000000000000000000001000000010000000000000000000000</DcData>
 						<DcMode>4672656552554e0000000000000000004672656552554e00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<DcMode>444300000000000000000000000000004443000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030100000000000000000000000000000000000000000000000000000000000000</DcMode>
 						<Pdo Name="Transmit PDO mapping 1" Index="#x1a00" Flags="#x0000" SyncMan="3">
@@ -6084,7 +6089,7 @@ External Setpoint Generation:
 						<CoeProfile ProfileNo="402"/>
 					</EtherCAT>
 				</Box>
-				<EtherCAT/>
+				<EtherCAT DcSyncMode="3"/>
 			</Device>
 		</Io>
 	</Project>
