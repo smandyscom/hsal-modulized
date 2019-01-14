@@ -1339,34 +1339,6 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety" TcBaseType="true">FSOE_6</Name>
-			<BitSize>48</BitSize>
-			<SubItem>
-				<Name>FSoE CMD</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000002}">USINT</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>0</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>FSoE Data</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000032}">BITARR8</Type>
-				<BitSize>8</BitSize>
-				<BitOffs>8</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>FSoE CRC_0</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>16</BitOffs>
-			</SubItem>
-			<SubItem>
-				<Name>FSoE ConnID</Name>
-				<Type GUID="{18071995-0000-0000-0000-000000000005}">UINT</Type>
-				<BitSize>16</BitSize>
-				<BitOffs>32</BitOffs>
-			</SubItem>
-		</DataType>
-		<DataType>
 			<Name GUID="{18071995-0000-0000-0000-002000000004}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..3] OF BIT</Name>
 			<BitSize>4</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
@@ -1376,7 +1348,7 @@ External Setpoint Generation:
 			</ArrayInfo>
 		</DataType>
 		<DataType>
-			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
+			<Name GUID="{18071995-0000-0000-0000-002000000003}" IecBaseType="true" BitType="true" AutoDeleteType="true" HideSubItems="true">ARRAY [0..2] OF BIT</Name>
 			<BitSize>3</BitSize>
 			<BaseType GUID="{18071995-0000-0000-0000-000000000010}">BIT</BaseType>
 			<ArrayInfo>
@@ -5742,23 +5714,6 @@ External Setpoint Generation:
 				</Instance>
 			</Project>
 		</Plc>
-		<Safety>
-			<Project GUID="{AB6256F2-FE37-446B-9EC5-A809349D31B4}" Name="safe" PrjFilePath="safe\safe.splcproj" TmcFilePath="safe\safe.tmc" GeneralArchiveSettings="#x000f" TargetArchiveSettings="#x0007" FileArchiveSettings="#x000e">
-				<Instance Id="#x01010010" KeepUnrestoredLinks="2">
-					<Name>safe Instance</Name>
-					<TmcDesc GUID="{72A6D5B8-E98C-4604-8B90-09D1F8AB38A9}">
-						<Name>Safety</Name>
-						<InitSequence>PO</InitSequence>
-						<Contexts>
-							<Context>
-								<Id>1</Id>
-								<Name>Default</Name>
-							</Context>
-						</Contexts>
-					</TmcDesc>
-				</Instance>
-			</Project>
-		</Safety>
 		<Io>
 			<Device DevType="111" DevFlags="#x0003" AmsPort="28673" AmsNetId="5.58.198.104.2.1" RemoteName="Device 1 (EtherCAT)" Id="1">
 				<Name>Device 1 (EtherCAT)</Name>
@@ -5980,34 +5935,12 @@ External Setpoint Generation:
 						<EtherCAT SlaveType="2" PdiType="#x0005" MboxDataLinkLayer="true" StateMBoxPolling="true" CycleMBoxPollingTime="0" CoeType="3" FoeType="1" VendorId="#x00000002" ProductCode="#x1af43052" RevisionNo="#x00120000" InfoDataAddr="true" TimeoutMailbox2="2000" TComSupport="true" CheckRevisionNoType="3" PortPhys="51" SafetyLogicSupported="true" MaxSlotCount="3" Type="EL6900, TwinSAFE PLC" Desc="EL6900" PortABoxInfo="#x01000003">
 							<SyncMan>001000012600010001000000000100010001001026010000</SyncMan>
 							<SyncMan>001100012200010002000000000100010001001122010000</SyncMan>
-							<SyncMan>001215002400010003000000000000000200001224010000</SyncMan>
-							<SyncMan>001d16002000010004000000000000000200001d20010000</SyncMan>
+							<SyncMan>001203002400010003000000000000000200001224010000</SyncMan>
+							<SyncMan>001d04002000010004000000000000000200001d20010000</SyncMan>
 							<Fmmu>0000000000000000001200020100000001000000000000000000000000000000</Fmmu>
 							<Fmmu>0000000000000000001d00010100000002000000000000000000000000000000</Fmmu>
 							<Fmmu>00000000000000000d0800010100000003000000000000000000000000000000</Fmmu>
 							<BootStrapData>0010f400f410f400</BootStrapData>
-							<Pdo Name="ConnectionInputs" Index="#x1a00" Flags="#x2011" SyncMan="3">
-								<Entry Name="Message_9 TxPDO" Index="#x7000" Sub="#x01">
-									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
-								</Entry>
-								<Entry Name="Message_10 TxPDO" Index="#x7000" Sub="#x02">
-									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
-								</Entry>
-								<Entry Name="Message_33 TxPDO" Index="#x7000" Sub="#x03">
-									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
-								</Entry>
-							</Pdo>
-							<Pdo Name="ConnectionOutputs" Index="#x1600" InOut="1" Flags="#x2011" SyncMan="2">
-								<Entry Name="Message_9 RxPDO" Index="#x6000" Sub="#x01">
-									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
-								</Entry>
-								<Entry Name="Message_10 RxPDO" Index="#x6000" Sub="#x02">
-									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
-								</Entry>
-								<Entry Name="Message_33 RxPDO" Index="#x6000" Sub="#x03">
-									<Type GUID="{2438F91B-E188-4ED7-8594-54354F9ED6A4}" Namespace="Safety">FSOE_6</Type>
-								</Entry>
-							</Pdo>
 							<Pdo Name="StandardInputs" Index="#x1bf0" Flags="#x2011" SyncMan="3">
 								<Entry Name="Standard Out Var 12" Index="#x7000" Sub="#x01">
 									<Type>BIT</Type>
@@ -16131,25 +16064,10 @@ External Setpoint Generation:
 		</Io>
 	</Project>
 	<Mappings>
-		<MappingInfo Identifier="{03040040-0040-0304-4000-040340000403}" Id="#x02030050" Watchdog="04000000040000000400000004000000"/>
 		<MappingInfo Identifier="{05000010-2001-0850-3000-040300205008}" Id="#x02030040" Watchdog="14000000040000000400000004000000"/>
 		<MappingInfo Identifier="{00000000-0020-0304-3000-040322000403}" Id="#x02030030"/>
 		<MappingInfo Identifier="{00000000-0010-0304-3000-040310000403}" Id="#x02030010"/>
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
-		<OwnerA Name="TIID^Device 1 (EtherCAT)">
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL6900)">
-				<Link VarA="Term 1 (EK1200)^Term 6 (EL2904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_10 RxPDO"/>
-				<Link VarA="Term 22 (EK1100)^Term 25 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_33 TxPDO"/>
-				<Link VarA="Term 22 (EK1100)^Term 25 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_33 RxPDO"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL1904)">
-				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_9 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
-				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionOutputs^Message_9 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 6 (EL2904)">
-				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_10 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
-			</OwnerB>
-		</OwnerA>
 		<OwnerA Name="TINC^NC-Task 1 SAF^Axes^AMs1">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Drive 21 (MBDLN25BE)">
 				<Link VarA="Drive^Inputs^In^nDataIn1" VarB="Transmit PDO mapping 1^Following error actual value"/>
@@ -16484,24 +16402,6 @@ External Setpoint Generation:
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerGreen" VarB="Channel 15^TowerGreen"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerRed" VarB="Channel 13^TowerRed"/>
 				<Link VarA="PlcTask Outputs^GVL.ioControl.towerYellow" VarB="Channel 14^TowerYellow"/>
-			</OwnerB>
-			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL6900)">
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.airChoke" VarB="StandardInputs^Standard Out Var 29"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.door1" VarB="StandardInputs^Standard Out Var 18"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.door2" VarB="StandardInputs^Standard Out Var 19"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.door3" VarB="StandardInputs^Standard Out Var 20"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.door4" VarB="StandardInputs^Standard Out Var 21"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.doorAll" VarB="StandardInputs^Standard Out Var 31"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop" VarB="StandardInputs^Standard Out Var 30"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop1" VarB="StandardInputs^Standard Out Var 17"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.eStop2" VarB="StandardInputs^Standard Out Var 27"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.lightScreen" VarB="StandardInputs^Standard Out Var 22"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.safeComErr" VarB="StandardInputs^Standard Out Var 12"/>
-				<Link VarA="PlcTask Inputs^GVL.ioSafety.servoSto" VarB="StandardInputs^Standard Out Var 28"/>
-				<Link VarA="PlcTask Outputs^GVL.ioSafety.airOff" VarB="StandardOutputs^Standard In Var 32"/>
-				<Link VarA="PlcTask Outputs^GVL.ioSafety.doorUnlockAll" VarB="StandardOutputs^Standard In Var 26"/>
-				<Link VarA="PlcTask Outputs^GVL.ioSafety.safeAck" VarB="StandardOutputs^Standard In Var 8"/>
-				<Link VarA="PlcTask Outputs^GVL.ioSafety.safeRun" VarB="StandardOutputs^Standard In Var 11"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 17 (EK1100)^7+DI1">
 				<Link VarA="PlcTask Inputs^GVL.cylinderControls[11].SENSOR_A[1]" VarB="Channel 3^ACy04a"/>
