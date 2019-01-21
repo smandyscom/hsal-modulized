@@ -11,15 +11,15 @@ QLabel {
 /*labels*/
 QWidget[OFFSET_UOB_IS_BYPASSED="true"] #pushButtonByPass
 {
-    background-color : Green;
+    background-color : cornflowerblue;
 }
 QWidget[OFFSET_UOB_STATE_PAUSE="true"] #pushButtonPause
 {
-    background-color : Green;
+    background-color : yellowgreen;
 }
 QWidget[OFFSET_UOB_MATERIAL_OVERRIDE="true"] #pushButtonMaterial
 {
-    background-color : Green;
+    background-color : lightgreen;
 }
 QWidget[OFFSET_UOB_WORKING_OVERRIDE="true"] #pushButtonWorking
 {
@@ -27,11 +27,11 @@ QWidget[OFFSET_UOB_WORKING_OVERRIDE="true"] #pushButtonWorking
 }
 QWidget[OFFSET_UOB_EN_STEP="true"] #pushButtonEnableStep
 {
-    background-color : Green;
+    background-color : blueviolet;
 }
 QWidget[OFFSET_UOB_TRIG_STEP="true"] #pushButtonStep
 {
-    background-color : Green;
+    background-color : violet;
 }
 
 * {
@@ -43,3 +43,38 @@ QWidget[OFFSET_UOB_TRIG_STEP="true"] #pushButtonStep
 {
     max-width : 800px;
 }
+
+/*transition bytes*/
+QWidget[BIT_9_TEMP_CONDITION_1="true"] #labelCondition0
+{
+    background-color : Green;
+}
+QWidget[BIT_10_TEMP_CONDITION_2="true"] #labelCondition1
+{
+    background-color : Green;
+}
+QWidget[BIT_11_TEMP_CONDITION_3="true"] #labelCondition2
+{
+    background-color : Green;
+}
+QWidget[BIT_12_TEMP_CONDITION_4="true"] #labelCondition3
+{
+    background-color : Green;
+}
+QWidget[BIT_13_TEMP_CONDITION_5="true"] #labelCondition4
+{
+    background-color : Green;
+}
+QWidget[BIT_14_TEMP_CONDITION_6="true"] #labelCondition5
+{
+    background-color : Green;
+}
+QWidget[BIT_15_TEMP_CONDITION_7="true"] #labelCondition6
+{
+    background-color : Green;
+}
+QWidget[BIT_16_TEMP_CONDITION_8="true"] #labelCondition7
+{
+    background-color : Green;
+}
+
