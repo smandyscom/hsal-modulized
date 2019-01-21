@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="MAIN" Id="{bbe2a781-9716-4ff3-acb6-ab90a53caf93}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -33,7 +33,7 @@ VAR
 									argCylinder:= ADR(gvl.cylinderControls[CyB2]),		
 									argObstacleSensor:=ADR(gvl.signalControls[SfB2]),
 									argReachSensor:= ADR(gvl.signalControls[SpB2]));
-	InputStation : RunInputV1(argParent:= ADR(ConveyorMasterB), 
+	InputStation : RunInputV1(argParent:= ADR(Controller), 
 							argSlotBase:= ADR(GVL.materialSlots[materialB1]), 
 							argSlotLast:= ADR(GVL.materialSlots[materialB1]),
 							argWorkingSignal := ADR(LifterCellularB.slaveWorkingSignal[1]),
