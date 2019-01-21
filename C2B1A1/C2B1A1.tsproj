@@ -16138,13 +16138,13 @@ External Setpoint Generation:
 		<MappingInfo Identifier="{00000000-2001-0850-0020-500841000403}" Id="#x02030020"/>
 		<OwnerA Name="TIID^Device 1 (EtherCAT)">
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 4 (EL6900)">
-				<Link VarA="Term 1 (EK1200)^Term 5 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_9 RxPDO"/>
 				<Link VarA="Term 1 (EK1200)^Term 6 (EL2904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_10 RxPDO"/>
 				<Link VarA="Term 22 (EK1100)^Term 25 (EL1904)^Module 1 (FSOES)^RxPDO^FSOE" VarB="ConnectionInputs^Message_33 TxPDO"/>
 				<Link VarA="Term 22 (EK1100)^Term 25 (EL1904)^Module 1 (FSOES)^TxPDO^FSOE" VarB="ConnectionOutputs^Message_33 RxPDO"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 5 (EL1904)">
 				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_9 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
+				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionOutputs^Message_9 RxPDO" VarB="Module 1 (FSOES)^TxPDO^FSOE"/>
 			</OwnerB>
 			<OwnerB Name="TIID^Device 1 (EtherCAT)^Term 1 (EK1200)^Term 6 (EL2904)">
 				<Link VarA="Term 1 (EK1200)^Term 4 (EL6900)^ConnectionInputs^Message_10 TxPDO" VarB="Module 1 (FSOES)^RxPDO^FSOE"/>
