@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SafetyDeviceDesc Crc="1195953330" FileFormatVersion="1.6">
+<SafetyDeviceDesc Crc="2458692070" FileFormatVersion="1.6">
   <AliasDeviceType>
     <Type>4</Type>
     <SubType>190</SubType>
@@ -7,7 +7,7 @@
   </AliasDeviceType>
   <SDSID>9</SDSID>
   <SafetyAliasDevice>
-    <ObjectId>50921476</ObjectId>
+    <ObjectId>50921473</ObjectId>
     <LinkingMode>Automatic</LinkingMode>
     <ConnectionId>9</ConnectionId>
     <ConnectionMode>master</ConnectionMode>
