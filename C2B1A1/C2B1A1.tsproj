@@ -4436,7 +4436,7 @@ External Setpoint Generation:
 			</NC>
 		</Motion>
 		<Plc>
-			<Project GUID="{EBF730F5-EB70-496D-B80F-3EF457609040}" Name="Untitled1" PrjFilePath="try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.plcproj" TmcFilePath="try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
+			<Project Disabled="true" GUID="{EBF730F5-EB70-496D-B80F-3EF457609040}" Name="Untitled1" PrjFilePath="try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.plcproj" TmcFilePath="try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
 				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="try-tc3-modulized\TwinCAT Project1\Untitled1\Untitled1.tmc">
 					<Name>Untitled1 Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
@@ -5743,7 +5743,7 @@ External Setpoint Generation:
 			</Project>
 		</Plc>
 		<Safety>
-			<Project GUID="{AB6256F2-FE37-446B-9EC5-A809349D31B4}" Name="safe" PrjFilePath="safe\safe.splcproj" TmcFilePath="safe\safe.tmc" GeneralArchiveSettings="#x000f" TargetArchiveSettings="#x0007" FileArchiveSettings="#x000e">
+			<Project Disabled="true" GUID="{AB6256F2-FE37-446B-9EC5-A809349D31B4}" Name="safe" PrjFilePath="safe\safe.splcproj" TmcFilePath="safe\safe.tmc" GeneralArchiveSettings="#x000f" TargetArchiveSettings="#x0007" FileArchiveSettings="#x000e">
 				<Instance Id="#x01010010" KeepUnrestoredLinks="2">
 					<Name>safe Instance</Name>
 					<TmcDesc GUID="{72A6D5B8-E98C-4604-8B90-09D1F8AB38A9}">
@@ -5789,9 +5789,6 @@ External Setpoint Generation:
 				</AddressInfo>
 				<Image Id="1" AddrType="9" ImageType="3">
 					<Name>Image</Name>
-				</Image>
-				<Image Id="4" AddrType="10" ImageType="3">
-					<Name>Image-2</Name>
 				</Image>
 				<Box BoxType="9099" Id="1">
 					<Name>Term 1 (EK1200)</Name>

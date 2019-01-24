@@ -1,13 +1,6 @@
-QGroupBox
-{
-    /*margin : 0px 0px 0px 0px;*/
-    /*margin-top : 0px;*/
-    padding-top : 20px;
+*{
+    font-size : 24px;
 }
-/*QGridLayout{
-    margin-top : 0px;
-}*/
-
 /*alternate*/
 QWidget QAbstractItemView::item:alternate
 {
