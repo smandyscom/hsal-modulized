@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.10">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4022.16">
   <POU Name="MAIN" Id="{bbe2a781-9716-4ff3-acb6-ab90a53caf93}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM MAIN
 VAR
@@ -58,7 +58,7 @@ VAR
 									argConnectorHolder := ADR(gvl.cylinderControls[FCy02]),
 									argTransporter := ADR(gvl.cylinderControls[FCy01]),
 									argOpenClamp := ADR(gvl.cylinderControls[FCy03]));
-	TopInspection : RunAxisInspection(argParent:= ADR(Controller), 
+	TopInspection : RunAxisAoiView(argParent:= ADR(Controller), 
 												argSlotBase:= ADR(GVL.materialSlots[materialA2]), 
 												argSlotLast:= ADR(GVL.materialSlots[materialA2]),
 												argWorkingSignal := ADR(LifterCellularA[2].slaveWorkingSignal[1]),
